@@ -8,7 +8,5 @@
 An API Sell/Rent Portal with Members 
   
 ## To Run  :
-<code>
-cd frontend
-
-npm run dev
+- <code>cd frontend</code>
+- <code>npm run dev</code>
