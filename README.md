@@ -7,3 +7,6 @@
 ## Use-Case
 An API Sell/Rent Portal with Members 
   
+## To Run  :
+cd frontend
+npm run dev
