@@ -1,7 +1,12 @@
 import config from '../../config.json'
 import axiosinstance from './AxiosInstance.ts'
 
+
+
 class Authorization {
+
+
+
     private static isValidPassword(password: string): boolean {
         if (password.length < 8 || password.length > 64)
             return false
@@ -19,7 +24,7 @@ class Authorization {
         }).then((response) => {
             if (response.status == 200){
                 localStorage.setItem('token',response.data.token)
-                //window.location.href = '/loggedin';
+                window.location.href = '/loggedin';
             }
         }).then((data) => {
             ///TODO: Data contains JWT, save it in cache and in api header(axiosInstance)

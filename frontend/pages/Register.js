@@ -23,7 +23,6 @@ function RegistrationPage(){
         }))
     }
 
-
     const handleSubmitClick = (e) => {
       e.preventDefault();//prevent default action of form which is submit
       
@@ -78,13 +77,15 @@ function RegistrationPage(){
             Register 
           </Button> 
           
-          
+         
           
 
 
            
           </Form>
           </Fade>
+          <button onClick={showSnackbar}>Show Snackbar</button>
+          
           </div>
     )
   }
