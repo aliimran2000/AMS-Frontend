@@ -2,10 +2,12 @@ import Authorization from '../Utils/axios/auth'
 import React, { useState } from 'react';
 import styles from '../styles/Home.module.css'
 import { Fade, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { useSnackbar } from 'notistack';
 
 
 function RegistrationPage() {
 
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     const [state, setState] = useState({
         username: "",
@@ -14,6 +16,8 @@ function RegistrationPage() {
         passwordr: "",
     })
 
+    
+    
 
     const handleChange = (e) => {
         const { id, value } = e.target
@@ -25,21 +29,36 @@ function RegistrationPage() {
 
     const handleSubmitClick = (e) => {
         e.preventDefault();//prevent default action of form which is submit
+        
+        if (state.password != state.passwordr){
+            enqueueSnackbar("Passwords don't     Match", 
+                {   
+                    variant: 'warning',
+                    
+                    anchorOrigin: {
+                        vertical: 'top',
+                        horizontal: 'center',
+                    }
+                });
 
-        console.log("requesting")
+            return ;
+        }
+            
+        
         Authorization.register(state.username, state.email, state.password)
             .then(succeded => {
                 if (succeded) {
-                    alert("Registration Successful")
+                    enqueueSnackbar("Registration SuccessFull", { variant: 'success',});
+                    window.location.href = '/Registration-Complete';
                 }
-                else {
-                    alert("Registration Failed")
+                else {  
+                    enqueueSnackbar("Registration Failed", { variant: 'error',});     
                 }
             });
     }
 
     return (
-        <div className={styles.main}>
+        <div className={styles.container}>
             <Fade in={true}>
                 <Form className={styles.loginform}>
                     <h1 className="text-center">
@@ -55,24 +74,34 @@ function RegistrationPage() {
                     </h3>
                     <FormGroup className="mt-4">
                         <Label>Email</Label>
-                        <Input className="mb-3" type="email" placeholder="user@email.com" id="email" onChange={handleChange} />
+                        <Input required={true} className="mb-3" type="email" placeholder="user@email.com" id="email" onChange={handleChange} />
 
                         <Label>UserName</Label>
-                        <Input className="mb-3" placeholder="KingCoder123 etc." id="username" onChange={handleChange} />
+                        <Input required={true} className="mb-3" placeholder="KingCoder123 etc." id="username" onChange={handleChange} />
 
                         <Label>Password</Label>
-                        <Input className="mb-3" type="password" placeholder="Password" id="password" onChange={handleChange} />
+                        <Input required={true} className="mb-3" type="password" placeholder="Password" id="password" onChange={handleChange} />
 
                         <Label>Confirm Password</Label>
-                        <Input className="mb-3" type="password" placeholder="Password" id="passwordr" onChange={handleChange} />
+                        <Input required={true} className="mb-3" type="password" placeholder="Password" id="passwordr" onChange={handleChange} />
                     </FormGroup>
 
+
+                    {!(state.username && state.email  && state.password  && state.passwordr )?  
+                    <Button
+                        className="disabled btn-secondary btn-block"
+
+                        type="submit">
+                        Register
+                    </Button>
+                    :
                     <Button
                         className="btn-success btn-block"
                         onClick={handleSubmitClick}
                         type="submit">
                         Register
                     </Button>
+                    }
                 </Form>
             </Fade>
         </div>

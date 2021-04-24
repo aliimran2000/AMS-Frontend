@@ -4,15 +4,22 @@ import config from '../../config.json'
 
 let baseURL = config.api.server;
 
-let axiosinstance = axios.create({
-    baseURL: baseURL,
-    timeout: 1000,
-    headers: {
-        //'Authorization': localStorage.getItem('token') ? "Bearer " + localStorage.getItem('token') : null,
-        'Content-Type': 'application/json',
-        'accept': 'application/json'
-    }
-})
+let axiosinstance = null
+
+if (process.browser && axiosinstance == null) {
+
+    axiosinstance = axios.create({
+        baseURL: baseURL,
+        timeout: 1000,
+        headers: {
+            'Authorization': localStorage.getItem('token') ? "Bearer " + localStorage.getItem('token') : null,
+            'Content-Type': 'application/json',
+            'accept': 'application/json'
+        }
+    })
+    
+}
+
 
 
 // axiosinstance.interceptors.response.use(

@@ -2,9 +2,14 @@ import Authorization from '../Utils/axios/auth'
 import React, { useState } from 'react';
 import styles from '../styles/Home.module.css'
 import { Fade, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { useSnackbar } from 'notistack';
 
 
 function LoginPage() {
+    
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
+
     const [state, setState] = useState({
         email: "",
         password: ""
@@ -25,16 +30,18 @@ function LoginPage() {
         Authorization.login(state.email, state.password)
             .then(succeded => {
                 if (succeded) {
-                    alert("Login Succeded")
+                    enqueueSnackbar("Login SuccessFull", { variant: 'success',});
+                    window.location.href = '/account';
                 }
-                else {
-                    alert("Login Failed")
+                else {  
+                    enqueueSnackbar("Login Failed", { variant: 'error',});     
                 }
             });
     }
-
+   
     return (
-        <div className={styles.main}>
+        <div className={styles.container}>
+            {process.browser && localStorage.getItem('token') ? window.location.href="/account" : null}
             <Fade in={true}>
                 <Form className={styles.loginform}>
 

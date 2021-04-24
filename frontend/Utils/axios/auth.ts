@@ -45,7 +45,7 @@ class Authorization {
 
             if (response.status == 200) {
                 localStorage.setItem('token', response.data.token)
-                window.location.href = '/account';
+                
                 return true
             }
         }
