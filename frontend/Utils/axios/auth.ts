@@ -15,7 +15,7 @@ class Authorization {
             return false
 
         try {
-            let response = await axiosinstance.post(config["api"]["endpoint"]["registration"], {
+            let response = await axiosinstance.post(config.api.endpoint.registration, {
                 username: username,
                 email: email,
                 password: password,
@@ -38,7 +38,7 @@ class Authorization {
             return false
 
         try {
-            let response = await axiosinstance.post(config["api"]["endpoint"]["login"], {
+            let response = await axiosinstance.post(config.api.endpoint.login, {
                 email: username,
                 password: password,
             })

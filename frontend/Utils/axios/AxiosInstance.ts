@@ -2,7 +2,7 @@ import axios from 'axios'
 import config from '../../config.json'
 
 
-let baseURL=  config["api"]["server"];
+let baseURL = config.api.server;
 
 let axiosinstance = axios.create({
     baseURL: baseURL,
@@ -29,7 +29,7 @@ let axiosinstance = axios.create({
 //         if (error.response.data.code === "token_not_valid" &&
 //             error.response.status === 401 && 
 //             error.response.statusText === "Unauthorized") 
-            
+
 //             {
 //                 const refreshToken = localStorage.getItem('refresh_token');
 
@@ -44,13 +44,13 @@ let axiosinstance = axios.create({
 //                         return axiosinstance
 //                         .post('refresh/', {refresh: refreshToken})
 //                         .then((response) => {
-            
+
 //                             localStorage.setItem('access_token', response.data.access);
 //                             localStorage.setItem('refresh_token', response.data.refresh);
-            
+
 //                             axiosinstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
 //                             originalRequest.headers['Authorization'] = "JWT " + response.data.access;
-            
+
 //                             return axiosinstance(originalRequest);
 //                         })
 //                         .catch(err => {
@@ -65,8 +65,8 @@ let axiosinstance = axios.create({
 //                     window.location.href = '/';
 //                 }
 //         }
-      
-     
+
+
 //       // specific error handling done elsewhere
 //       return Promise.reject(error);
 //   }
