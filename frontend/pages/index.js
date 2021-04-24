@@ -4,13 +4,13 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
     
     return (
-        <div style={{ backgroundImage: `url(${background})` }}>
+        <div>
             <Head>
                 <title>AMS</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div>
-                Hello theres
+                Hello there
             </div>
         </div>
     )
