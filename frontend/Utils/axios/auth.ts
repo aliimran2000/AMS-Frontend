@@ -7,6 +7,7 @@ class Authorization {
             return false
         return true
     }
+
     static register(username: string, email: string, password: string): boolean {
         if (!this.isValidPassword(password))
             return false
@@ -16,9 +17,10 @@ class Authorization {
             email: email,
             password: password,
         }).then((response) => {
-            if (response.status != 200)
-                throw 'Registration Failed'
-            return response.data
+            if (response.status == 200){
+                localStorage.setItem('token',response.data.token)
+                //window.location.href = '/loggedin';
+            }
         }).then((data) => {
             ///TODO: Data contains JWT, save it in cache and in api header(axiosInstance)
             //Talk it in meet api and axios Instance
@@ -26,8 +28,7 @@ class Authorization {
             console.log(error)
         })
 
-        //TODO
-        //Check if registration failed than return false
+        
         return true;
     }
 

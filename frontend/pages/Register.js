@@ -4,14 +4,17 @@ import styles from '../styles/Home.module.css'
 import {Fade ,Button ,Form , FormGroup , Label , Input} from 'reactstrap';
 
 
-function LoginPage(){
+function RegistrationPage(){
     
 
     const [state , setState] = useState({
+      username: "",
       email : "",
-      password : ""
+      password : "",
+      passwordr : "",
     })
    
+
     const handleChange = (e) => {
         const {id , value} = e.target   
         setState(prevState => ({
@@ -20,11 +23,12 @@ function LoginPage(){
         }))
     }
 
+
     const handleSubmitClick = (e) => {
       e.preventDefault();//prevent default action of form which is submit
       
       console.log("requesting")
-      Authorization.login(state.email,state.password);
+      Authorization.register(state.username,state.email,state.password);
     
     }
 
@@ -41,15 +45,29 @@ function LoginPage(){
             The Solution to your API Needs 
           </h3>
 
-          <FormGroup className="mt-4">
+
+          <h3 className="text-center text-primary text-monospace mt-4">
+            Register Here
+          </h3>
+
+          <FormGroup className="mt-4">  
+            
             <Label>
               Email
             </Label>
-            <Input type="email" placeholder="user@email.com" id="email" onChange={handleChange} />
+            <Input className="mb-3" type="email" placeholder="user@email.com" id="email" onChange={handleChange} />
+            
             <Label>
-              Password
+              UserName
             </Label>
-            <Input type="password" placeholder="Password" id="password" onChange={handleChange} />
+            <Input  className="mb-3" placeholder="KingCoder123 etc." id="username" onChange={handleChange} />
+            
+            <Label>Password</Label>
+            <Input className="mb-3" type="password" placeholder="Password" id="password" onChange={handleChange} />
+            
+            <Label>Confirm Password</Label>
+            <Input className="mb-3" type="password" placeholder="Password" id="passwordr" onChange={handleChange} />
+            
           
           </FormGroup>
           
@@ -57,20 +75,11 @@ function LoginPage(){
           className="btn-success btn-block" 
           onClick={handleSubmitClick}
           type="submit">
-            Log In
+            Register 
           </Button> 
           
           
-          <div className="text-center  pt-3">
-            <a  href="/Register">
-              Dont have an account?
-            </a> 
-          </div>
-          <div className="text-center  pt-3">
-            <a  href="/Register">
-              Forgot Password?
-            </a> 
-          </div>
+          
 
 
            
@@ -80,4 +89,4 @@ function LoginPage(){
     )
   }
   
-export default LoginPage
+export default RegistrationPage
