@@ -1,64 +1,60 @@
 import config from '../../config.json'
-import axiosinstance from './AxiosInstance.ts'
+import axiosinstance from './AxiosInstance'
 
 
 
 class Authorization {
-
-
-
     private static isValidPassword(password: string): boolean {
         if (password.length < 8 || password.length > 64)
             return false
         return true
     }
 
-    static register(username: string, email: string, password: string): boolean {
+    static async register(username: string, email: string, password: string): Promise<boolean> {
         if (!this.isValidPassword(password))
             return false
 
-        axiosinstance.post(config["api"]["endpoint"]["registration"], {
-            username: username,
-            email: email,
-            password: password,
-        }).then((response) => {
-            if (response.status == 200){
-                localStorage.setItem('token',response.data.token)
-                window.location.href = '/loggedin';
+        try {
+            let response = await axiosinstance.post(config["api"]["endpoint"]["registration"], {
+                username: username,
+                email: email,
+                password: password,
+            })
+            if (response.status == 200) {
+                localStorage.setItem('token', response.data.token)
+                return true
             }
-        }).then((data) => {
-            ///TODO: Data contains JWT, save it in cache and in api header(axiosInstance)
-            //Talk it in meet api and axios Instance
-        }).catch((error) => {
+        }
+        catch (error) {
             console.log(error)
-        })
+            return false;
+        }
 
-        
-        return true;
+        return false;
     }
 
-    static login(username: string, password: string): boolean {
+    static async login(username: string, password: string): Promise<boolean> {
         if (!this.isValidPassword(password))
             return false
 
+        try {
+            let response = await axiosinstance.post(config["api"]["endpoint"]["login"], {
+                email: username,
+                password: password,
+            })
 
-        axiosinstance.post(config["api"]["endpoint"]["login"], {
-            email: username,
-            password: password,
-        }
-        ).then((response) => {
-            if (response.status == 200){
-                localStorage.setItem('token',response.data.token)
-                window.location.href = '/loggedin';
+            if (response.status == 200) {
+                localStorage.setItem('token', response.data.token)
+                window.location.href = '/account';
+                return true
             }
-        }).catch((error) => {
+        }
+        catch (error) {
             console.log(error)
-                      
-        })
+            return false;
+        }
 
-        
-
-        
+        return false;
     }
 }
 

@@ -4,12 +4,12 @@ import { SnackbarProvider } from 'notistack';
 
 
 function MyApp({ Component, pageProps }) {
-  return(
+  return (
 
     <SnackbarProvider maxSnack={3}>
       <Component {...pageProps} />
     </SnackbarProvider>
-      
+
 
   )
 }
