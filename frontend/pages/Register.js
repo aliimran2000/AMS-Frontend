@@ -36,37 +36,28 @@ function RegistrationPage() {
                     alert("Registration Failed")
                 }
             });
-
     }
 
     return (
         <div className={styles.main}>
             <Fade in={true}>
                 <Form className={styles.loginform}>
-
-
                     <h1 className="text-center">
                         <span className="font-weight-bolder text-success">HostYourAPI</span>.com
-          </h1>
+                    </h1>
                     <h3 className="text-center">
                         The Solution to your API Needs
-          </h3>
+                    </h3>
 
 
                     <h3 className="text-center text-primary text-monospace mt-4">
                         Register Here
-          </h3>
-
+                    </h3>
                     <FormGroup className="mt-4">
-
-                        <Label>
-                            Email
-            </Label>
+                        <Label>Email</Label>
                         <Input className="mb-3" type="email" placeholder="user@email.com" id="email" onChange={handleChange} />
 
-                        <Label>
-                            UserName
-            </Label>
+                        <Label>UserName</Label>
                         <Input className="mb-3" placeholder="KingCoder123 etc." id="username" onChange={handleChange} />
 
                         <Label>Password</Label>
@@ -74,8 +65,6 @@ function RegistrationPage() {
 
                         <Label>Confirm Password</Label>
                         <Input className="mb-3" type="password" placeholder="Password" id="passwordr" onChange={handleChange} />
-
-
                     </FormGroup>
 
                     <Button
@@ -83,10 +72,7 @@ function RegistrationPage() {
                         onClick={handleSubmitClick}
                         type="submit">
                         Register
-          </Button>
-
-
-
+                    </Button>
                 </Form>
             </Fade>
         </div>

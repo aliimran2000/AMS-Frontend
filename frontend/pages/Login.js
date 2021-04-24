@@ -38,24 +38,22 @@ function LoginPage() {
             <Fade in={true}>
                 <Form className={styles.loginform}>
 
-
                     <h1 className="text-center">
                         <span className="font-weight-bolder text-success">HostYourAPI</span>.com
-          </h1>
+                    </h1>
                     <h3 className="text-center">
                         The Solution to your API Needs
-          </h3>
+                    </h3>
 
                     <FormGroup className="mt-4">
                         <Label>
                             Email
-            </Label>
+                        </Label>
                         <Input type="email" placeholder="user@email.com" id="email" onChange={handleChange} />
                         <Label>
                             Password
-            </Label>
+                        </Label>
                         <Input type="password" placeholder="Password" id="password" onChange={handleChange} />
-
                     </FormGroup>
 
                     <Button
@@ -63,21 +61,20 @@ function LoginPage() {
                         onClick={handleSubmitClick}
                         type="submit">
                         Log In
-          </Button>
+                    </Button>
 
 
                     <div className="text-center  pt-3">
                         <a href="/Register">
                             Dont have an account?
-            </a>
+                        </a>
                     </div>
+
                     <div className="text-center  pt-3">
                         <a href="/Register">
                             Forgot Password?
-            </a>
+                        </a>
                     </div>
-
-
 
                 </Form>
             </Fade>

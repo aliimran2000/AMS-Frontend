@@ -2,15 +2,15 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  return (
-    <div >
-      <Head>
-        <title>AMS</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className>
-      Hello theres
-      </div>
-    </div>
-  )
+    return (
+        <div >
+            <Head>
+                <title>AMS</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <div className>
+                Hello theres
+            </div>
+        </div>
+    )
 }
