@@ -33,10 +33,7 @@ function LoginPage(){
       console.log("requesting")
       if (state.email != "" && state.password != ""){
         Authorization.login(state.email,state.password);
-      
-
-
-        
+    
     }
 
   }
