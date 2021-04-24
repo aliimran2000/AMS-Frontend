@@ -1,0 +1,10 @@
+
+{
+    "api": {
+        "server": "https://localhost:5001",
+        "endpoint": {
+            "login": "/api/AuthManagement/Login",
+            "registration": "/api/AuthManagement/Register"
+        }
+    }
+}
