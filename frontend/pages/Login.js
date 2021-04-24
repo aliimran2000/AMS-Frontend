@@ -63,7 +63,6 @@ function LoginPage() {
                         Log In
                     </Button>
 
-
                     <div className="text-center  pt-3">
                         <a href="/Register">
                             Dont have an account?
