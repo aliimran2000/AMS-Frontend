@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 import { Fade, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useSnackbar } from "notistack";
-
+import Image from "next/image";
 
 import { useUser } from "../contexts/UserContext";
 
@@ -50,8 +50,18 @@ function LoginPage() {
       {/*process.browser && localStorage.getItem("token")
         ? (window.location.href = "/account")
   : null*/}
+
       <Fade in={true}>
         <Form className={styles.loginform}>
+          <div class="d-flex justify-content-center mb-2">
+          
+          <Image
+            src="/../public/media/stock-exchange-app.png"
+            height="100%"
+            width="100%"
+          />
+          </div>
+
           <h1 className="text-center">
             <span className="font-weight-bolder text-success">HostYourAPI</span>
             .com

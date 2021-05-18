@@ -10,6 +10,8 @@ import {
   Button,
 } from "reactstrap";
 
+import Image from "next/image";
+
 import buttonstyles from '../styles/button.module.css'
 
 import { useUser } from "../contexts/UserContext";
@@ -36,9 +38,19 @@ const NavBar = (props) => {
 
   return (
     <div>
-      <Navbar color="faded" expand="md">
-        <NavbarBrand href="/">AMS</NavbarBrand>
+      <Navbar color="faded" expand="md" fixed="top">
+
+        <NavbarBrand href="/">
+          
+          <Image
+            src="/../public/media/stock-exchange-app.png"
+            height="50%"
+            width="50%"
+          />
+          </NavbarBrand>
+
         <NavbarToggler onClick={toggle} />
+        
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>

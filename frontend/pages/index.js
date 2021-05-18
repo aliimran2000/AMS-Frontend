@@ -1,32 +1,97 @@
-import Head from 'next/head'
-import NavBar from '../components/NavBar'
-import styles from '../styles/Home.module.css'
-import FadeInSection from '../components/FadeIn'
-import { Media } from 'reactstrap';
-import Image from 'next/image'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import buttonstyles from "../styles/button.module.css";
+import Image from "next/image";
+import { Button } from "reactstrap";
+import Fade from "react-reveal/Fade";
 
 export default function Home() {
-    return (
-        <div>
-            <Head>
-                <title>AMS</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            {/* <div className={styles.container}>
-                <FadeInSection key={1}>
-                    <Image src="/../public/media/search.png" width="100%" height="100%" />
-                </FadeInSection>
-            </div>
-            <div className={styles.container}>
-                <FadeInSection key={2}>
-                    <Image src="/../public/media/search.png" width="100%" height="100%" />
-                </FadeInSection>
-            </div>
-            <div className={styles.container}>
-                <FadeInSection key={3}>
-                    <Image src="/../public/media/search.png" width="100%" height="100%" />
-                </FadeInSection>
-            </div> */}
-        </div>
-    )
+  return (
+    <div>
+      <Head>
+        <title>AMS</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <div className={styles.entrycontainer}></div>
+
+      <div className={styles.main}>
+        <Fade bottom>
+          <div className={styles.rcontainer}>
+            <h1 class="display-1">Welcome</h1>
+          </div>
+
+          <div
+            class="d-flex justify-content-around"
+            style={{ minWidth: "350px" }}
+          >
+            
+            <Button
+              onClick={() => {
+                window.location.href = "/Browse";
+              }}
+              className={buttonstyles.fancybuttonstretch}
+            >
+              continue to store
+            </Button>
+
+            
+            <Button
+              onClick={() => {
+                window.location.href = "/About";
+              }}
+              className={buttonstyles.fancybutton}
+            >
+              Learn More
+            </Button>
+
+          </div>
+        </Fade>
+
+        <Fade>
+          <Image
+            src="/../public/media/down-arrow.png"
+            height="100%"
+            width="100%"
+            top
+            style={{ marginTop: "50px" }}
+          />
+        </Fade>
+
+        <Fade left>
+          <div className={styles.container}>
+            <p class="display-4 ">Product for all your solutions</p>
+            <Image
+              src="/../public/media/gear-pen.png"
+              height="200%"
+              width="200%"
+            ></Image>
+          </div>
+        </Fade>
+
+        <Fade left>
+          <div className={styles.container}>
+            <p class="display-4  ">Controlled Access</p>
+            <Image
+              src="/../public/media/trihand.png"
+              height="200%"
+              width="200%"
+            ></Image>
+          </div>
+        </Fade>
+
+        <Fade left>
+          <div className={styles.container}>
+            <p class="display-4">Browse through Multiple Categories</p>
+
+            <Image
+              src="/../public/media/search.png"
+              height="150%"
+              width="150%"
+            ></Image>
+          </div>
+        </Fade>
+      </div>
+    </div>
+  );
 }

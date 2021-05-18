@@ -6,6 +6,31 @@
   align-items: center;
 }
 
+.entrycontainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  filter : blur(2px) ;
+  background-image: url("../public/media/l-bl-background.jpg"); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 100%; /* You must set a specified height */
+  width: 100%;
+  position: fixed; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */  
+}
+
+
+.rcontainer {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .main {
   padding: 5rem 0;
   flex: 1;
