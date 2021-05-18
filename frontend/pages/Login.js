@@ -4,7 +4,6 @@ import styles from '../styles/Home.module.css'
 import { Fade, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useSnackbar } from 'notistack';
 
-
 function LoginPage() {
     
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
