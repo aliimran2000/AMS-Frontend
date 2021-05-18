@@ -138,7 +138,7 @@
 .backgroundhome {
   z-index: -1;
   filter : blur(2px) ;
-  background-image: url("../images/l-bl-background.jpg"); /* The image used */
+  background-image: url("../public/media/background_image.jpg"); /* The image used */
   background-color: #cccccc; /* Used if the image is unavailable */
   height: 100%; /* You must set a specified height */
   width: 100%;

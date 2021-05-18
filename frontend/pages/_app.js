@@ -6,11 +6,10 @@ import NavBar from '../components/NavBar';
 
 function MyApp({ Component, pageProps }) {
     return (
-        
         <SnackbarProvider maxSnack={3}>
-            
             <NavBar />
             <Component {...pageProps} />
+
             <Footer />
         </SnackbarProvider>
     )
