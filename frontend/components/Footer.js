@@ -1,12 +1,11 @@
-import React from "react";
+import React from "react"
+import styles from '../styles/Home.module.css'
 
 const Footer = () => {
   return (
-    <footer class="footer">
-      <div class="container text-center">
-        <span class="text-muted">© 2021, API Management System, All rights reserved.</span>
+      <div className={styles.footer}>
+        <span className="text-muted">© 2021, API Management System, All rights reserved.</span>
       </div>
-    </footer>
   );
 };
 export default Footer;
