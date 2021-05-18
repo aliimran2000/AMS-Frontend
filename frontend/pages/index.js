@@ -10,7 +10,6 @@ export default function Home() {
                 <title>AMS</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <NavBar />
         </div>
     )
 }

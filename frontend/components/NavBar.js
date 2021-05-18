@@ -7,17 +7,19 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
+  Button,
 } from "reactstrap";
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const customStyles = {
+    buttonStyle : {
+      "border-radius": "25px"
+    }
+  }
 
   return (
     <div>
@@ -26,14 +28,14 @@ const NavBar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <NavItem className="float-right">
-              <NavLink href="/Browse">Browse APIs</NavLink>
+            <NavItem>
+              <NavLink href="/Browse"><Button color="link">Browse APIs</Button></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Login">Login</NavLink>
+              <NavLink href="/Login"><Button outline color="success" style={customStyles.buttonStyle}>Login</Button></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Register">Signup</NavLink>
+              <NavLink href="/Register"><Button outline color="success" style={customStyles.buttonStyle}>Signup</Button></NavLink>
             </NavItem>
           </Nav>
         </Collapse>
