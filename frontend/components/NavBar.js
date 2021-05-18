@@ -25,24 +25,15 @@ const NavBar = (props) => {
         <NavbarBrand href="/">AMS</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="navbar-items"  navbar>
-            <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+          <Nav className="ml-auto" navbar>
+            <NavItem className="float-right">
+              <NavLink href="/Browse">Browse APIs</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
+              <NavLink href="/Login">Login</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Login">
-                Login
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/Register">
-                Signup
-              </NavLink>
+              <NavLink href="/Register">Signup</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
