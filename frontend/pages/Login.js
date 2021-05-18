@@ -41,6 +41,8 @@ function LoginPage() {
    
     return (
         <div className={styles.container} >
+            
+            <div className={styles.backgroundhome}/>
             {process.browser && localStorage.getItem('token') ? window.location.href="/account" : null}
             <Fade in={true}>
                 <Form className={styles.loginform}>

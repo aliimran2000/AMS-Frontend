@@ -17,13 +17,13 @@ const NavBar = (props) => {
 
   const customStyles = {
     buttonStyle : {
-      "border-radius": "25px"
+      "borderRadius": "25px"
     }
   }
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="faded" expand="md" >
         <NavbarBrand href="/">AMS</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

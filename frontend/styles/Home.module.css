@@ -20,7 +20,6 @@
   position: fixed;
   width: 100%;
   bottom: 0;
-  border-top: 1px solid #eaeaea;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,12 +137,14 @@
 
 .backgroundhome {
   z-index: -1;
-  filter : blur(2px);
-  background-image: url("../images/whole.jpg"); /* The image used */
+  filter : blur(2px) ;
+  background-image: url("../images/l-bl-background.jpg"); /* The image used */
   background-color: #cccccc; /* Used if the image is unavailable */
   height: 100%; /* You must set a specified height */
   width: 100%;
-  position: absolute; /* Center the image */
+  position: fixed; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
+  left: 0;
+  bottom: 0;
 }
