@@ -7,15 +7,16 @@ export function useUser() {
 }
 
 export function UserProvider({ children }) {
-  function foo() {
-    return true;
+  
+  const [Con, setCon] = React.useState(null);
+
+  function Setter(val){
+    setCon(val)
   }
 
-  const values = {
-      foo,
-  };
+  const values = {Setter,Con,};
 
   return (
-    <UserContext.provider values={values}>{children}</UserContext.provider>
+    <UserContext.Provider value={values}>{children}</UserContext.Provider>
   );
 }

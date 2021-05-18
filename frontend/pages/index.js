@@ -12,7 +12,7 @@ export default function Home() {
                 <title>AMS</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className={styles.container}>
+            {/* <div className={styles.container}>
                 <FadeInSection key={1}>
                     <Image src="/../public/media/search.png" width="100%" height="100%" />
                 </FadeInSection>
@@ -26,7 +26,7 @@ export default function Home() {
                 <FadeInSection key={3}>
                     <Image src="/../public/media/search.png" width="100%" height="100%" />
                 </FadeInSection>
-            </div>
+            </div> */}
         </div>
     )
 }

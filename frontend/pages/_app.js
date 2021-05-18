@@ -6,14 +6,14 @@ import { UserProvider } from "../contexts/UserContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <UserProvider>
-      <SnackbarProvider maxSnack={3}>
+    <SnackbarProvider maxSnack={3}>
+      <UserProvider>
         <NavBar />
         <Component {...pageProps} />
 
         <Footer />
-      </SnackbarProvider>
-    </UserProvider>
+      </UserProvider>
+    </SnackbarProvider>
   );
 }
 
