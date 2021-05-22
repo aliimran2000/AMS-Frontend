@@ -12,7 +12,8 @@ const withAuth = (WrappedComponent) => {
       const Router = useRouter();
 
       const accessToken = localStorage.getItem("token");
-
+      
+      
      
       if (!accessToken && !useUser()) {
         Router.replace("/");

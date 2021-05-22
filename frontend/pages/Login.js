@@ -50,7 +50,7 @@ function LoginPage() {
     }
 
     e.preventDefault(); //prevent default action of form which is submit
-
+    
     console.log("requesting");
     Authorization.login(state.email, state.password).then((succeded) => {
       if (succeded[0]) {

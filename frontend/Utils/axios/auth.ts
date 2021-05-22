@@ -17,6 +17,7 @@ class Authorization {
         password: password,
       })
       .then(
+        
         (response) => {
           localStorage.setItem("token", response.data.token);
           return [true, "successfully registered account"];
@@ -34,7 +35,7 @@ class Authorization {
              return [false, "Failed Request try again"];
           }
 
-          return [false, "Failed Request try again "];
+          //return [false, "Failed Request try again "];
         }
       );
 
