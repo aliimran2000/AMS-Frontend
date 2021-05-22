@@ -14,6 +14,7 @@ import Image from "next/image";
 
 import buttonstyles from '../styles/button.module.css'
 
+import {useUser} from '../Utils/UserManagement.js'
 
 const NavBar = (props) => {
   
@@ -59,16 +60,16 @@ const NavBar = (props) => {
               </NavLink>
             </NavItem>
 
-            { localStorage.getItem('User') ? (
+            {useUser() ? (
               <>
-              <NavLink href="/Profile">
+              <NavLink href="/account">
                 <Button
                   outline
                   color="success"
                   className={buttonstyles.fancybutton}
                 >
 
-                  {localStorage.getItem('User').name}
+                  {useUser().name}
 
                 </Button>
               </NavLink>

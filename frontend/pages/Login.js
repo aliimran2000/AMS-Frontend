@@ -5,12 +5,11 @@ import { Fade, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useSnackbar } from "notistack";
 import Image from "next/image";
 
-import { UserDetails } from "../contexts/UserContext";
-
+import { setUser} from '../Utils/UserManagement.js'
 
 function LoginPage() {
   
-  const UserTools = UserDetails();
+
   
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -40,9 +39,8 @@ function LoginPage() {
     Authorization.login(state.email, state.password).then((succeded) => {
       if (succeded[0]) {
         enqueueSnackbar("Login SuccessFull", { variant: "success" });
+        setUser({'name':'buraq','type':'base'})
         
-        localStorage.setItem("User",{'name':'Buraq','Type':'Buraq'})
-        //console.log(UserTools.Con)
         window.location.href = "/account";
 
       } else {
@@ -53,9 +51,9 @@ function LoginPage() {
 
   return (
     <div className={styles.container}>
-      {/*process.browser && localStorage.getItem("token")
+      {process.browser && localStorage.getItem("token") && localStorage.getItem("User_Name")
         ? (window.location.href = "/account")
-  : null*/}
+  : null}
 
       <Fade in={true}>
         <Form className={styles.loginform}>

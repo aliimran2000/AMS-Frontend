@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-
+import {useUser} from '../Utils/UserManagement'
 
 
 const withAuth = (WrappedComponent) => {
@@ -12,9 +12,9 @@ const withAuth = (WrappedComponent) => {
       const Router = useRouter();
 
       const accessToken = localStorage.getItem("token");
-      
-      // If there is no access token we redirect to "/" page.
-      if (!accessToken) {
+
+     
+      if (!accessToken && !useUser()) {
         Router.replace("/");
         return null;
       }

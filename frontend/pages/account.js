@@ -1,11 +1,10 @@
 import withAuth from "../Utils/withAuth";
 import styles from "../styles/Home.module.css";
 import Fade from "react-reveal/Fade";
-import { UserDetails } from "../contexts/UserContext";
+
 
 function account() {
   
- const UserTools = UserDetails();
 
     
   return (
@@ -14,7 +13,7 @@ function account() {
         <Fade bottom>
           <div className={styles.container}>
 
-            <h1 class="display-2">Hi , {UserTools.Getter().name} this page is under construction </h1>
+            <h1 class="display-2">Hi ,this page is under construction </h1>
           </div>
         </Fade>
       </div>
