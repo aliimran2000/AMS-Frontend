@@ -52,6 +52,7 @@ class Authorization {
 
       if (response.status == 200) {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("refreshToken", response.data.refreshToken);
 
         return [true, true];
       } else {

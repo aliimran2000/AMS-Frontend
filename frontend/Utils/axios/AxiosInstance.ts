@@ -13,6 +13,7 @@ if (process.browser && axiosinstance == null) {
         timeout: 1000,
         headers: {
             'Authorization': localStorage.getItem('token') ? "Bearer " + localStorage.getItem('token') : null,
+            'refreshToken' : localStorage.getItem('refreshToken') ?  localStorage.getItem('refreshToken') : null,
             'Content-Type': 'application/json',
             'accept': 'application/json'
         }
