@@ -41,11 +41,11 @@ function RegistrationPage() {
 
     Authorization.register(state.username, state.email, state.password).then(
       (succeded) => {
-        if (succeded) {
+        if (succeded[0]) {
           enqueueSnackbar("Registration SuccessFull", { variant: "success" });
           window.location.href = "/Registration-Complete";
         } else {
-          enqueueSnackbar("Registration Failed", { variant: "error" });
+          enqueueSnackbar(succeded[1], { variant: "error" });
         }
       }
     );

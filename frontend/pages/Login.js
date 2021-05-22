@@ -28,11 +28,17 @@ function LoginPage() {
   };
 
   const handleSubmitClick = (e) => {
+
+    if (email == "" && password == ""){
+      enqueueSnackbar("invalid login request", { variant: "error" });
+      return;
+    }
+
     e.preventDefault(); //prevent default action of form which is submit
 
     console.log("requesting");
     Authorization.login(state.email, state.password).then((succeded) => {
-      if (succeded) {
+      if (succeded[0]) {
         enqueueSnackbar("Login SuccessFull", { variant: "success" });
         
         UserTools.Setter({"name":"Buraq","Type":"Yiblees"})    
@@ -40,7 +46,7 @@ function LoginPage() {
         //window.location.href = "/account";
 
       } else {
-        enqueueSnackbar("Login Failed", { variant: "error" });
+        enqueueSnackbar(succeded[1], { variant: "error" });
       }
     });
   };
