@@ -10,7 +10,6 @@ class Authorization {
   static async register(username: string, email: string, password: string) {
     if (!this.isValidPassword(password)) return [false, "invalid password"];
 
-
     let response = await axiosinstance
       .post(config.api.endpoint.registration, {
         username: username,
@@ -23,21 +22,28 @@ class Authorization {
           return [true, "successfully registered account"];
         },
         (error) => {
-          var x;
-          for ( x in error.response.data.errors){
-            return [false, error.response.data.errors[x]]
+          //bugged
+          try {
+            var x;
+            for (x in error.response.data.errors) {
+              return [false, error.response.data.errors[x]];
+            }
           }
-          ;
+          catch(e){
+             console.log(e)
+             return [false, "Failed Request try again"];
+          }
+
+          return [false, "Failed Request try again "];
         }
       );
-    
-    console.log(response)
-    return response
+
+    console.log(response);
+    return response;
   }
 
   static async login(username: string, password: string) {
     try {
-      
       let response = await axiosinstance.post(config.api.endpoint.login, {
         email: username,
         password: password,

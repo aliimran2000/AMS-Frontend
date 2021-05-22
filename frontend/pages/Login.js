@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import { Fade, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useSnackbar } from "notistack";
 import Image from "next/image";
-
+import axiosinstance from '../Utils/axios/AxiosInstance'
 import { setUser} from '../Utils/UserManagement.js'
 
 function LoginPage() {
@@ -18,6 +18,22 @@ function LoginPage() {
     password: "",
   });
 
+  
+  const getbalance =  ( ) =>{
+
+    var val = axiosinstance.post('/api/UserManagement/User-Context').
+    then((response)=>{
+        setUser(response)
+        return true
+    },(error)=>{
+        return false 
+    })
+
+    return val
+    
+    
+  }
+  
   const handleChange = (e) => {
     const { id, value } = e.target;
     setState((prevState) => ({
@@ -38,12 +54,12 @@ function LoginPage() {
     console.log("requesting");
     Authorization.login(state.email, state.password).then((succeded) => {
       if (succeded[0]) {
-        enqueueSnackbar("Login SuccessFull", { variant: "success" });
-        setUser({'name':'buraq','type':'base'})
-        
-        window.location.href = "/account";
-
-      } else {
+        if (getbalance()){
+          enqueueSnackbar("Login SuccessFull", { variant: "success" });
+          window.location.href = "/account";
+        }    
+      } 
+      else {
         enqueueSnackbar(succeded[1], { variant: "error" });
       }
     });

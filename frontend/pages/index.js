@@ -19,11 +19,11 @@ export default function Home() {
         <Fade bottom>
           
           <div className={styles.rcontainer}>
-            <h1 class="display-1">Welcome</h1>
+            <h1 className="display-1">Welcome</h1>
           </div>
 
           <div
-            class="d-flex justify-content-around"
+            className="d-flex justify-content-around"
             style={{ minWidth: "350px" }}
           >
             
@@ -61,7 +61,7 @@ export default function Home() {
 
         <Fade left>
           <div className={styles.container}>
-            <p class="display-4 ">Product for all your solutions</p>
+            <p className="display-4 ">Product for all your solutions</p>
             <Image
               src="/../public/media/gear-pen.png"
               height="200%"
@@ -72,7 +72,7 @@ export default function Home() {
 
         <Fade left>
           <div className={styles.container}>
-            <p class="display-4  ">Controlled Access</p>
+            <p className="display-4  ">Controlled Access</p>
             <Image
               src="/../public/media/trihand.png"
               height="200%"
@@ -83,7 +83,7 @@ export default function Home() {
 
         <Fade left>
           <div className={styles.container}>
-            <p class="display-4">Browse through Multiple Categories</p>
+            <p className="display-4">Browse through Multiple Categories</p>
 
             <Image
               src="/../public/media/search.png"
