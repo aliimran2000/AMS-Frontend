@@ -2,7 +2,7 @@ import Authorization from '../Utils/axios/auth'
 import React, { useState } from 'react';
 import styles from '../styles/Home.module.css'
 import { Fade, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { useSnackbar } from 'notistack';
+
 
 
 function RegistrationComplete() {
@@ -31,7 +31,7 @@ function RegistrationComplete() {
                 </li>
                 
                 <li className="nav-item">
-                    <a className="nav-link" href="/Home">Home</a>
+                    <a className="nav-link" href="/">Home</a>
                 </li>
             </ul>
          

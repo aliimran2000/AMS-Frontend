@@ -6,6 +6,11 @@ import Fade from "react-reveal/Fade";
 function account() {
   
 
+  function Logout(){
+    localStorage.clear();
+    window.location.href="/";
+  }
+
     
   return (
     <div className="d-flex justify-content-center">
@@ -13,7 +18,9 @@ function account() {
         <Fade bottom>
           <div className={styles.container}>
 
+
             <h1 class="display-2">Hi ,this page is under construction </h1>
+            <button type="button" class="btn btn-outline-warning" onClick={()=>{Logout()}}>Logout</button>
           </div>
         </Fade>
       </div>

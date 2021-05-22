@@ -17,6 +17,7 @@ export default function Home() {
 
       <div className={styles.main}>
         <Fade bottom>
+          
           <div className={styles.rcontainer}>
             <h1 class="display-1">Welcome</h1>
           </div>
@@ -28,7 +29,7 @@ export default function Home() {
             
             <Button
               onClick={() => {
-                window.location.href = "/Browse";
+                window.location.href = "/store/browseapis";
               }}
               className={buttonstyles.fancybuttonstretch}
             >

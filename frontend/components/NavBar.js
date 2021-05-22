@@ -55,7 +55,7 @@ const NavBar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/Browse">
+              <NavLink href="/store/browseapis">
                 <Button color="success" style={customStyles.buttonStyle} >Browse APIs</Button>
               </NavLink>
             </NavItem>

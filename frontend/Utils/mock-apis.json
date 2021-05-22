@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Face Recognition",
+        
+        "description": "Proident nostrud nisi adipisicing deserunt Lorem qui non sit est nisi consequat."
+        
+    },
+    {
+        "name": "Virtual Reality",
+        "description": "Anim anim consequat cupidatat dolore ea et ea mollit eiusmod amet sunt qui et mollit."
+    },
+    {
+        "name": "Self Driving Car",
+        "description": "Laboris non nisi labore in."
+    },
+    {
+        "name": "Cloud Computing",
+        "description": "Et minim ea consequat pariatur non tempor fugiat dolore sunt do."
+    },
+    {
+        "name": "Home Automation",
+        "description": "Ipsum amet excepteur excepteur fugiat irure exercitation anim adipisicing aliquip et duis sit nisi aliqua."
+    },
+    {
+        "name": "Geo Location",
+        "description": "Culpa esse velit culpa ex ullamco ad."
+    },
+    {
+        "name": "Internet of Things",
+        "description": "Deserunt elit cupidatat ea commodo est proident ad mollit est."
+    },
+    {
+        "name": "Data Analysis",
+        "description": "Do commodo ipsum magna dolore culpa esse dolore."
+    }
+]
