@@ -14,10 +14,10 @@ import Image from "next/image";
 
 import buttonstyles from '../styles/button.module.css'
 
-import { useUser } from "../contexts/UserContext";
 
 const NavBar = (props) => {
-  const UserTools = useUser();
+  
+  
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -59,7 +59,7 @@ const NavBar = (props) => {
               </NavLink>
             </NavItem>
 
-            {!!UserTools.Con ? (
+            { localStorage.getItem('User') ? (
               <>
               <NavLink href="/Profile">
                 <Button
@@ -68,7 +68,8 @@ const NavBar = (props) => {
                   className={buttonstyles.fancybutton}
                 >
 
-                  {UserTools.Con.name}
+                  {localStorage.getItem('User').name}
+
                 </Button>
               </NavLink>
               

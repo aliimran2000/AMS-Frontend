@@ -5,12 +5,12 @@ import { Fade, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useSnackbar } from "notistack";
 import Image from "next/image";
 
-import { useUser } from "../contexts/UserContext";
+import { UserDetails } from "../contexts/UserContext";
 
 
 function LoginPage() {
   
-  const UserTools = useUser();
+  const UserTools = UserDetails();
   
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -41,9 +41,9 @@ function LoginPage() {
       if (succeded[0]) {
         enqueueSnackbar("Login SuccessFull", { variant: "success" });
         
-        UserTools.Setter({"name":"Buraq","Type":"Yiblees"})    
-        console.log(UserTools.Con)
-        //window.location.href = "/account";
+        localStorage.setItem("User",{'name':'Buraq','Type':'Buraq'})
+        //console.log(UserTools.Con)
+        window.location.href = "/account";
 
       } else {
         enqueueSnackbar(succeded[1], { variant: "error" });

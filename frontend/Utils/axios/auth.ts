@@ -1,6 +1,5 @@
 import config from "../../config.json";
 import axiosinstance from "./AxiosInstance";
-import { withSnackbar } from "notistack";
 
 class Authorization {
   private static isValidPassword(password: string) {
