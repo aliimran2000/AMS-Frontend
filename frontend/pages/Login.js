@@ -5,12 +5,12 @@ import { Fade, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useSnackbar } from "notistack";
 import Image from "next/image";
 import axiosinstance from '../Utils/axios/AxiosInstance'
-import { setUser} from '../Utils/UserManagement.js'
+import { setUser } from '../Utils/UserManagement.js'
 
 function LoginPage() {
-  
 
-  
+
+
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const [state, setState] = useState({
@@ -18,22 +18,22 @@ function LoginPage() {
     password: "",
   });
 
-  
-  const getbalance =  ( ) =>{
+
+  const getbalance = () => {
 
     var val = axiosinstance.post('/api/UserManagement/User-Context').
-    then((response)=>{
-        setUser(response)
+      then((response) => {
+        setUser(response.data)
         return true
-    },(error)=>{
-        return false 
-    })
+      }, (error) => {
+        return false
+      })
 
     return val
-    
-    
+
+
   }
-  
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setState((prevState) => ({
@@ -44,21 +44,21 @@ function LoginPage() {
 
   const handleSubmitClick = (e) => {
 
-    if (email == "" && password == ""){
+    if (email == "" && password == "") {
       enqueueSnackbar("invalid login request", { variant: "error" });
       return;
     }
 
     e.preventDefault(); //prevent default action of form which is submit
-    
+
     console.log("requesting");
     Authorization.login(state.email, state.password).then((succeded) => {
       if (succeded[0]) {
-        if (getbalance()){
+        if (getbalance()) {
           enqueueSnackbar("Login SuccessFull", { variant: "success" });
           window.location.href = "/account";
-        }    
-      } 
+        }
+      }
       else {
         enqueueSnackbar(succeded[1], { variant: "error" });
       }
@@ -69,17 +69,17 @@ function LoginPage() {
     <div className={styles.container}>
       {process.browser && localStorage.getItem("token") && localStorage.getItem("User_Name")
         ? (window.location.href = "/account")
-  : null}
+        : null}
 
       <Fade in={true}>
         <Form className={styles.loginform}>
           <div class="d-flex justify-content-center mb-2">
-          
-          <Image
-            src="/../public/media/stock-exchange-app.png"
-            height="100%"
-            width="100%"
-          />
+
+            <Image
+              src="/../public/media/stock-exchange-app.png"
+              height="100%"
+              width="100%"
+            />
           </div>
 
           <h1 className="text-center">

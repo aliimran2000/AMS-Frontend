@@ -17,9 +17,12 @@ class Authorization {
         password: password,
       })
       .then(
-        
+
         (response) => {
           localStorage.setItem("token", response.data.token);
+          localStorage.setItem("refreshToken", response.data.refreshToken);
+          axiosinstance.defaults.headers['Authorization'] = "Bearer " + response.data.token;
+          axiosinstance.defaults.headers['refreshToken'] = response.data.refreshToken;
           return [true, "successfully registered account"];
         },
         (error) => {
@@ -30,9 +33,9 @@ class Authorization {
               return [false, error.response.data.errors[x]];
             }
           }
-          catch(e){
-             console.log(e)
-             return [false, "Failed Request try again"];
+          catch (e) {
+            console.log(e)
+            return [false, "Failed Request try again"];
           }
 
           //return [false, "Failed Request try again "];
@@ -53,6 +56,8 @@ class Authorization {
       if (response.status == 200) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("refreshToken", response.data.refreshToken);
+        axiosinstance.defaults.headers['Authorization'] = "Bearer " + response.data.token;
+        axiosinstance.defaults.headers['refreshToken'] = response.data.refreshToken;
 
         return [true, true];
       } else {

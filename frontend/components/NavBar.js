@@ -14,11 +14,11 @@ import Image from "next/image";
 
 import buttonstyles from '../styles/button.module.css'
 
-import {useUser} from '../Utils/UserManagement.js'
+import { useUser } from '../Utils/UserManagement.js'
 
 const NavBar = (props) => {
-  
-  
+
+
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,14 +27,14 @@ const NavBar = (props) => {
   const customStyles = {
     buttonStyle: {
       borderRadius: "25px",
-      fontFamily : `'Roboto', sans-serif`
+      fontFamily: `'Roboto', sans-serif`
     },
 
-    popopbutton :{
+    popopbutton: {
       borderRadius: "25px",
       boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.1)",
     }
-    
+
   };
 
   return (
@@ -42,16 +42,16 @@ const NavBar = (props) => {
       <Navbar color="faded" expand="md" fixed="top">
 
         <NavbarBrand href="/">
-          
+
           <Image
             src="/../public/media/stock-exchange-app.png"
             height="50%"
             width="50%"
           />
-          </NavbarBrand>
+        </NavbarBrand>
 
         <NavbarToggler onClick={toggle} />
-        
+
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
@@ -62,24 +62,24 @@ const NavBar = (props) => {
 
             {useUser() ? (
               <>
-              <NavLink href="/account">
-                <Button
-                  outline
-                  color="success"
-                  className={buttonstyles.fancybutton}
-                >
+                <NavLink href="/account">
+                  <Button
+                    outline
+                    color="success"
+                    className={buttonstyles.fancybutton}
+                  >
 
-                  {useUser().name}
+                    {useUser().name}
 
-                </Button>
-              </NavLink>
-              
-              <NavLink href="/Dashboard">
-                
-              <Button className={buttonstyles.fancybutton} >
-                  Dashboard
-                </Button>
-              </NavLink>
+                  </Button>
+                </NavLink>
+
+                <NavLink href="/Dashboard">
+
+                  <Button className={buttonstyles.fancybutton} >
+                    Dashboard
+                  </Button>
+                </NavLink>
 
               </>
 
