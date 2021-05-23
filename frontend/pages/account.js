@@ -27,12 +27,12 @@ function account() {
   }
 
   const apis = data;
-  const [collapse, setCollapse] = useState(0);
+  const [collapse, setCollapse] = useState("");
 
   function toggle(e) {
-    const id = Number(e.target.dataset.event);
+    const id = String(e.target.dataset.event);
     if (collapse === id) {
-      setCollapse(0);
+      setCollapse("");
     } else {
       setCollapse(id);
     }
@@ -62,7 +62,7 @@ function account() {
                 </Card>
               </div>
 
-              <div class="d-flex flex-column justify-content-center">
+              <div className="d-flex flex-column justify-content-center">
                 {apis.map((item) => {
                   return (
                     <div>
