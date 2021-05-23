@@ -17,6 +17,8 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { useState } from "react";
+import { useUser } from "../Utils/UserManagement";
+import data from "../Utils/my-services.json"
 
 function account() {
   function Logout() {
@@ -24,7 +26,7 @@ function account() {
     window.location.href = "/";
   }
 
-  const apis = [1, 2, 3, 4, 5];
+  const apis = data;
   const [collapse, setCollapse] = useState(0);
 
   function toggle(e) {
@@ -52,35 +54,36 @@ function account() {
                   />
                   <CardBody>
                     <CardTitle tag="h5">Profile</CardTitle>
-                    <CardText>Name : Noman Aziz </CardText>
-                    <CardText>Email : i181561@nu.edu.pk </CardText>
-                    <CardText>Type : Admin </CardText>
+                    <CardText>Name : {useUser().name} </CardText>
+                    <CardText>Email : {"IN DEV"} </CardText>
+                    <CardText>Type : {"IN DEV"} </CardText>
+                    <CardText>Current Balance : {useUser().balance} points </CardText>
                   </CardBody>
                 </Card>
               </div>
 
               <div class="d-flex flex-column justify-content-center">
-                {apis.map((index) => {
+                {apis.map((item) => {
                   return (
                     <div>
                       <Button
                         color="primary"
                         onClick={toggle}
-                        data-event={index}
+                        data-event={item.key}
                         style={{ marginBottom: "1rem" }}
                       >
-                        Api : {index}
+                        Api : {item.key}
                       </Button>
-                      <Collapse isOpen={collapse === index}>
+                      <Collapse isOpen={collapse === item.key}>
                         <Card>
                           <CardBody>
                             <CardTitle tag="h5">Date</CardTitle>
-                            <CardText>Rented : 01-01-2021</CardText>
-                            <CardText>Expire : 01-02-2021</CardText>
+                            <CardText>Rented : {item.rentaldate}</CardText>
+                            <CardText>Expire : {item.expiredate}</CardText>
                             <CardTitle tag="h5">Details</CardTitle>
-                            <CardText>Name : Food Panda API Key</CardText>
+                            <CardText>Name : {item.name}</CardText>
                             <CardText>
-                              Description : Used to order food via api
+                              Description : {item.description}
                             </CardText>
                           </CardBody>
                         </Card>
@@ -106,4 +109,4 @@ function account() {
   );
 }
 
-export default account;
+export default withAuth(account);

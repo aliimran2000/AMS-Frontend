@@ -1,0 +1,23 @@
+[
+    {
+        "key":"Adspaoj12312098132",
+        "name": "Face Recognition",
+        "description": "Scans the face and recognizes it.",
+        "rentaldate":"01-01-2021",
+        "expiredate":"01-02-2021"
+    },
+    {
+        "key":"POasddaoi12389daad",
+        "name": "Virtual Reality",
+        "description": "Used for watching virtual reality shows.",
+        "rentaldate":"10-01-2021",
+        "expiredate":"10-02-2021"
+    },
+    {
+        "key":"ASMPas123jki109drj",
+        "name": "Self Driving Car",
+        "description": "self driving car using deep learning.",
+        "rentaldate":"20-01-2021",
+        "expiredate":"20-02-2021"
+    }
+]
