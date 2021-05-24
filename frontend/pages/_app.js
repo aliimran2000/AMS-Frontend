@@ -5,23 +5,25 @@ import NavBar from "../components/NavBar";
 
 import Head from "next/head";
 
+import { UserContext } from "../Source/UserManagement";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <SnackbarProvider maxSnack={3}>
+    <UserContext>
+      <SnackbarProvider maxSnack={3}>
 
-      
-      <Head>
-        <title>AMS</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      
+        <Head>
+          <title>AMS</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
         <NavBar />
         <Component {...pageProps} />
 
         <Footer />
 
-    </SnackbarProvider>
+      </SnackbarProvider>
+    </UserContext>
   );
 }
 

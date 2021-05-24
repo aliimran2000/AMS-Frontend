@@ -17,10 +17,12 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { useState } from "react";
-import { useUser } from "../Utils/UserManagement";
 import data from "../Utils/my-services.json"
 
+import { useUserContext } from "../Source/UserManagement";
+
 function account() {
+  const userData = useUserContext()
   function Logout() {
     localStorage.clear();
     window.location.href = "/";
@@ -37,7 +39,6 @@ function account() {
       setCollapse(id);
     }
   }
-
   return (
     <div className="d-flex justify-content-center">
       <div className={styles.main}>
@@ -54,10 +55,10 @@ function account() {
                   />
                   <CardBody>
                     <CardTitle tag="h5">Profile</CardTitle>
-                    <CardText>Name : {useUser().name} </CardText>
+                    <CardText>Name : {userData ? userData.username : "Loading..."} </CardText>
                     <CardText>Email : {"IN DEV"} </CardText>
                     <CardText>Type : {"IN DEV"} </CardText>
-                    <CardText>Current Balance : {useUser().balance} points </CardText>
+                    <CardText>Current Balance : {userData ? userData.balance : "Loading..."} points </CardText>
                   </CardBody>
                 </Card>
               </div>

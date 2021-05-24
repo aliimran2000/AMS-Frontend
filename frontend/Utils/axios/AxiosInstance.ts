@@ -6,6 +6,7 @@ let baseURL = config.api.server;
 let axiosinstance = null;
 
 if (process.browser && axiosinstance == null) {
+  console.log("Created Axios Instance")
   axiosinstance = axios.create({
     baseURL: baseURL,
     timeout: 1000,

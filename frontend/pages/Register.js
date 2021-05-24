@@ -4,7 +4,6 @@ import styles from "../styles/Home.module.css";
 import { Fade, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useSnackbar } from "notistack";
 import Image from "next/image";
-import getbalance from "../Utils/API-Requests/getbalance";
 
 
 function RegistrationPage() {
@@ -45,7 +44,6 @@ function RegistrationPage() {
       (succeded) => {
         if (succeded[0]) {
           enqueueSnackbar("Registration SuccessFull", { variant: "success" });
-          getbalance();
           window.location.href = "/Registration-Complete";
         } else {
           enqueueSnackbar(succeded[1], { variant: "error" });

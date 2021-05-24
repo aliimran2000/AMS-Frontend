@@ -5,9 +5,6 @@ import { Fade, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useSnackbar } from "notistack";
 import Image from "next/image";
 
-//import { setUser } from "../Utils/UserManagement.js";
-import getbalance from "../Utils/API-Requests/getbalance";
-
 function LoginPage() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -35,10 +32,8 @@ function LoginPage() {
     console.log("requesting");
     Authorization.login(state.email, state.password).then((succeded) => {
       if (succeded[0]) {
-        if (getbalance()) {
-          enqueueSnackbar("Login SuccessFull", { variant: "success" });
-          window.location.href = "/account";
-        }
+        enqueueSnackbar("Login SuccessFull", { variant: "success" });
+        window.location.href = "/account";
       } else {
         enqueueSnackbar(succeded[1], { variant: "error" });
       }
@@ -48,8 +43,8 @@ function LoginPage() {
   return (
     <div className={styles.container}>
       {process.browser &&
-      localStorage.getItem("token") &&
-      localStorage.getItem("User_Name")
+        localStorage.getItem("token") &&
+        localStorage.getItem("User_Name")
         ? (window.location.href = "/account")
         : null}
 

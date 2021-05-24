@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Collapse,
   Navbar,
@@ -14,12 +14,13 @@ import Image from "next/image";
 
 import buttonstyles from "../styles/button.module.css";
 
-import { useUser } from "../Utils/UserManagement.js";
+import { useUserContext } from "../Source/UserManagement";
 
 const NavBar = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const userData = useUserContext()
+  const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => setIsOpen(!isOpen)
 
   const customStyles = {
     buttonStyle: {
@@ -56,7 +57,7 @@ const NavBar = (props) => {
               </NavLink>
             </NavItem>
 
-            {useUser() ? (
+            {userData ? (
               <>
                 <NavLink href="/account">
                   <Button
@@ -64,7 +65,7 @@ const NavBar = (props) => {
                     color="success"
                     className={buttonstyles.fancybutton}
                   >
-                    {useUser() ? In : useUser().name}
+                    {userData.username}
                   </Button>
                 </NavLink>
 
