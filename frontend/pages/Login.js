@@ -4,35 +4,17 @@ import styles from "../styles/Home.module.css";
 import { Fade, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useSnackbar } from "notistack";
 import Image from "next/image";
-import axiosinstance from '../Utils/axios/AxiosInstance'
-import { setUser } from '../Utils/UserManagement.js'
+
+//import { setUser } from "../Utils/UserManagement.js";
+import getbalance from "../Utils/API-Requests/getbalance";
 
 function LoginPage() {
-
-
-
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const [state, setState] = useState({
     email: "",
     password: "",
   });
-
-
-  const getbalance = () => {
-
-    var val = axiosinstance.post('/api/UserManagement/User-Context').
-      then((response) => {
-        setUser(response.data)
-        return true
-      }, (error) => {
-        return false
-      })
-
-    return val
-
-
-  }
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -43,7 +25,6 @@ function LoginPage() {
   };
 
   const handleSubmitClick = (e) => {
-
     if (email == "" && password == "") {
       enqueueSnackbar("invalid login request", { variant: "error" });
       return;
@@ -58,8 +39,7 @@ function LoginPage() {
           enqueueSnackbar("Login SuccessFull", { variant: "success" });
           window.location.href = "/account";
         }
-      }
-      else {
+      } else {
         enqueueSnackbar(succeded[1], { variant: "error" });
       }
     });
@@ -67,14 +47,15 @@ function LoginPage() {
 
   return (
     <div className={styles.container}>
-      {process.browser && localStorage.getItem("token") && localStorage.getItem("User_Name")
+      {process.browser &&
+      localStorage.getItem("token") &&
+      localStorage.getItem("User_Name")
         ? (window.location.href = "/account")
         : null}
 
       <Fade in={true}>
         <Form className={styles.loginform}>
-          <div class="d-flex justify-content-center mb-2">
-
+          <div className="d-flex justify-content-center mb-2">
             <Image
               src="/../public/media/stock-exchange-app.png"
               height="100%"
@@ -91,6 +72,7 @@ function LoginPage() {
           <FormGroup className="mt-4">
             <Label>Email</Label>
             <Input
+              name="email"
               type="email"
               placeholder="user@email.com"
               id="email"
@@ -98,6 +80,7 @@ function LoginPage() {
             />
             <Label>Password</Label>
             <Input
+              name="password"
               type="password"
               placeholder="Password"
               id="password"

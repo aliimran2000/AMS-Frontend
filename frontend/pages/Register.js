@@ -4,6 +4,8 @@ import styles from "../styles/Home.module.css";
 import { Fade, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useSnackbar } from "notistack";
 import Image from "next/image";
+import getbalance from "../Utils/API-Requests/getbalance";
+
 
 function RegistrationPage() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -43,6 +45,7 @@ function RegistrationPage() {
       (succeded) => {
         if (succeded[0]) {
           enqueueSnackbar("Registration SuccessFull", { variant: "success" });
+          getbalance();
           window.location.href = "/Registration-Complete";
         } else {
           enqueueSnackbar(succeded[1], { variant: "error" });
@@ -74,6 +77,7 @@ function RegistrationPage() {
           <FormGroup className="mt-4">
             <Label>Email</Label>
             <Input
+              name="email"
               required={true}
               className="mb-3"
               type="email"
@@ -84,6 +88,7 @@ function RegistrationPage() {
 
             <Label>UserName</Label>
             <Input
+              name="usernmae"
               required={true}
               className="mb-3"
               placeholder="KingCoder123 etc."
@@ -93,6 +98,7 @@ function RegistrationPage() {
 
             <Label>Password</Label>
             <Input
+              name="password"
               required={true}
               className="mb-3"
               type="password"
@@ -103,6 +109,7 @@ function RegistrationPage() {
 
             <Label>Confirm Password</Label>
             <Input
+              name="password"
               required={true}
               className="mb-3"
               type="password"

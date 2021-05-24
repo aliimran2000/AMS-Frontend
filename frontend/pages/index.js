@@ -54,7 +54,7 @@ export default function Home() {
             src="/../public/media/down-arrow.png"
             height="100%"
             width="100%"
-            top
+            top="true"
             style={{ marginTop: "50px" }}
           />
         </Fade>

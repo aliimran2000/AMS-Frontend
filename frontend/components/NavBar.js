@@ -64,7 +64,7 @@ const NavBar = (props) => {
                     color="success"
                     className={buttonstyles.fancybutton}
                   >
-                    {useUser().name}
+                    {useUser() ? In : useUser().name}
                   </Button>
                 </NavLink>
 

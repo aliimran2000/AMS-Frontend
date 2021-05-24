@@ -72,7 +72,7 @@ function account() {
                         data-event={item.key}
                         style={{ marginBottom: "1rem" }}
                       >
-                        Api : {item.key}
+                        Api : {item.name}
                       </Button>
                       <Collapse isOpen={collapse === item.key}>
                         <Card>
@@ -81,7 +81,7 @@ function account() {
                             <CardText>Rented : {item.rentaldate}</CardText>
                             <CardText>Expire : {item.expiredate}</CardText>
                             <CardTitle tag="h5">Details</CardTitle>
-                            <CardText>Name : {item.name}</CardText>
+                            <CardText>API-KEY : {item.key}</CardText>
                             <CardText>
                               Description : {item.description}
                             </CardText>

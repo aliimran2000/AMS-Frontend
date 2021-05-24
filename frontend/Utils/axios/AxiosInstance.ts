@@ -1,27 +1,26 @@
-import axios from 'axios'
-import config from '../../config.json'
-
+import axios from "axios";
+import config from "../../config.json";
 
 let baseURL = config.api.server;
 
-let axiosinstance = null
+let axiosinstance = null;
 
 if (process.browser && axiosinstance == null) {
-
-    axiosinstance = axios.create({
-        baseURL: baseURL,
-        timeout: 1000,
-        headers: {
-            'Authorization': localStorage.getItem('token') ? "Bearer " + localStorage.getItem('token') : null,
-            'refreshToken' : localStorage.getItem('refreshToken') ?  localStorage.getItem('refreshToken') : null,
-            'Content-Type': 'application/json',
-            'accept': 'application/json'
-        }
-    })
-    
+  axiosinstance = axios.create({
+    baseURL: baseURL,
+    timeout: 1000,
+    headers: {
+      Authorization: localStorage.getItem("token")
+        ? "Bearer " + localStorage.getItem("token")
+        : null,
+      refreshToken: localStorage.getItem("refreshToken")
+        ? localStorage.getItem("refreshToken")
+        : null,
+      "Content-Type": "application/json",
+      accept: "application/json",
+    },
+  });
 }
-
-
 
 // axiosinstance.interceptors.response.use(
 //     response => response,
@@ -35,8 +34,8 @@ if (process.browser && axiosinstance == null) {
 //         }
 
 //         if (error.response.data.code === "token_not_valid" &&
-//             error.response.status === 401 && 
-//             error.response.statusText === "Unauthorized") 
+//             error.response.status === 401 &&
+//             error.response.statusText === "Unauthorized")
 
 //             {
 //                 const refreshToken = localStorage.getItem('refresh_token');
@@ -74,14 +73,9 @@ if (process.browser && axiosinstance == null) {
 //                 }
 //         }
 
-
 //       // specific error handling done elsewhere
 //       return Promise.reject(error);
 //   }
 // );
-
-
-
-
 
 export default axiosinstance;
