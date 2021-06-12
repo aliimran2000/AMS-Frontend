@@ -55,7 +55,13 @@ const browseapis = () => {
                     Buy Now
                   </button>
                 ) : null}
-                <button type="button" class="btn btn-info">
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  onClick={() => {
+                    window.location.href = "/store/viewapi/" + item.name;
+                  }}
+                >
                   View Details
                 </button>
               </div>
