@@ -36,7 +36,7 @@ const browseapis = () => {
     }
 
     const fuse = new Fuse(data, {
-      keys: ["name"], //add possible search keys here
+      keys: ["name", "desc"], //add possible search keys here
     });
 
     const searchresults = fuse.search(query);
