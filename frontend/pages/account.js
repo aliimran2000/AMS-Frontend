@@ -56,8 +56,6 @@ function account() {
                   <CardBody>
                     <CardTitle tag="h5">Profile</CardTitle>
                     <CardText>Name : {userData ? userData.username : "Loading..."} </CardText>
-                    <CardText>Email : {"IN DEV"} </CardText>
-                    <CardText>Type : {"IN DEV"} </CardText>
                     <CardText>Current Balance : {userData ? userData.balance : "Loading..."} points </CardText>
                   </CardBody>
                 </Card>

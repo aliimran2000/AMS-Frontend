@@ -8,12 +8,14 @@ import axiosinstance from "../../Utils/axios/AxiosInstance";
 const browseapis = () => {
   const [data, setData] = React.useState(null)
   const [query, setQuery] = React.useState(true)
+  const [filteredData, setFilteredData] = React.useState(null)
 
   function getRequests(callUrl) {
     if (axiosinstance != null) {
       axiosinstance.get(callUrl).then(response => {
         if (response.status == 200) {
           setData(response.data)
+          setFilteredData(data);
           setQuery(false)
         }
       }).catch(error => {
@@ -29,7 +31,7 @@ const browseapis = () => {
 
   const searchitem = (query) => {
     if (!query) {
-      setquery(data);
+      setFilteredData(data);
       return;
     }
 
@@ -44,9 +46,9 @@ const browseapis = () => {
       searchresults.forEach((fyp) => {
         finalresults.push(fyp.item);
       });
-      setquery(finalresults);
+      setFilteredData(finalresults);
     } else {
-      setquery([]);
+      setFilteredData([]);
     }
   };
 
@@ -62,7 +64,7 @@ const browseapis = () => {
 
       <div className={styles.container}>
         <div className="d-flex flex-wrap justify-content-center">
-          {data && data.map((item) => (
+          {filteredData && filteredData.map((item) => (
             <div className={styles.card}>
               <h3>{item.name}</h3>
               <p>{item.desc} </p>
