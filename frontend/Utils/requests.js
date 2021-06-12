@@ -25,7 +25,7 @@ export function RequestsContext(props) {
     ]
 
     return (
-        <Requests.Provider value={values}>
+        <Requests.Provider value={getRequests}>
             {props.children}
         </Requests.Provider>
     )

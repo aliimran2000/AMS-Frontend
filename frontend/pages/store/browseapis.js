@@ -1,17 +1,30 @@
 import React from "react";
 import styles from "../../styles/Home.module.css";
 import { Input } from "reactstrap";
-//import data from "../../Utils/mock-apis.json";
 import { useUserContext } from "../../Source/UserManagement";
 import Fuse from "fuse.js";
-import { useRequestsContext } from "../../Utils/requests";
+import axiosinstance from "../../Utils/axios/AxiosInstance";
 
 const browseapis = () => {
-  //Get data from request
-  const useRequest = useRequestsContext();
-  const data = useRequest.getRequests("/api/APIManagement/GetAPIs");
+  const [data, setData] = React.useState(null)
+  const [query, setQuery] = React.useState(true)
 
-  const [query, setquery] = React.useState(data);
+  function getRequests(callUrl) {
+    if (axiosinstance != null) {
+      axiosinstance.get(callUrl).then(response => {
+        if (response.status == 200) {
+          setData(response.data)
+          setQuery(false)
+        }
+      }).catch(error => {
+        console.log(error)
+      })
+    }
+  }
+
+  if (query)
+    getRequests("/api/APIManagement/GetAPIs");
+
   const userData = useUserContext();
 
   const searchitem = (query) => {
@@ -49,7 +62,7 @@ const browseapis = () => {
 
       <div className={styles.container}>
         <div className="d-flex flex-wrap justify-content-center">
-          {query.map((item) => (
+          {data && data.map((item) => (
             <div className={styles.card}>
               <h3>{item.name}</h3>
               <p>{item.desc} </p>
