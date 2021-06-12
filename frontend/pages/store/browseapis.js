@@ -53,7 +53,6 @@ const browseapis = () => {
             <div className={styles.card}>
               <h3>{item.name}</h3>
               <p>{item.desc} </p>
-              <p>{item.price} Rs.</p>
 
               <div className="d-flex flex-column">
                 {userData ? (

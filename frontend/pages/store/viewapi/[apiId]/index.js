@@ -17,7 +17,6 @@ const index = () => {
       <div className={styles.main}>
         <div className={styles.title}>API Title : {data.name}</div>
         <div className={styles.description}>{data.desc}</div>
-        <div className={styles.description}>{data.price} Rs</div>
         <div class="d-flex flex-row justify-content-center">
           <div class={styles.card}>
             <p className="text-center">Hello this is data</p>
