@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "../../styles/Home.module.css";
 import { Input } from "reactstrap";
-import data from "../../Utils/mock-apis.json";
+//import data from "../../Utils/mock-apis.json";
 import { useUserContext } from "../../Source/UserManagement";
 import Fuse from "fuse.js";
+import { useRequestsContext } from "../../Utils/requests";
 
 const browseapis = () => {
+  //Get data from request
+  const useRequest = useRequestsContext();
+  const data = useRequest.getRequests("/api/APIManagement/GetAPIs");
+
   const [query, setquery] = React.useState(data);
   const userData = useUserContext();
 
@@ -47,7 +52,8 @@ const browseapis = () => {
           {query.map((item) => (
             <div className={styles.card}>
               <h3>{item.name}</h3>
-              <p>{item.description} </p>
+              <p>{item.desc} </p>
+              <p>{item.price} Rs.</p>
 
               <div className="d-flex flex-column">
                 {userData ? (
@@ -59,7 +65,7 @@ const browseapis = () => {
                   type="button"
                   class="btn btn-info"
                   onClick={() => {
-                    window.location.href = "/store/viewapi/" + item.name;
+                    window.location.href = "/store/viewapi/" + item.id;
                   }}
                 >
                   View Details
