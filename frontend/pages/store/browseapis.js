@@ -2,11 +2,12 @@ import React from "react";
 import styles from "../../styles/Home.module.css";
 import { Input } from "reactstrap";
 import data from "../../Utils/mock-apis.json";
-import { useUser } from "../../Utils/UserManagement";
+import { useUserContext } from "../../Source/UserManagement";
 import Fuse from "fuse.js";
 
 const browseapis = () => {
   const [query, setquery] = React.useState(data);
+  const userData = useUserContext();
 
   const searchitem = (query) => {
     if (!query) {
@@ -48,16 +49,16 @@ const browseapis = () => {
               <h3>{item.name}</h3>
               <p>{item.description} </p>
 
-              {useUser() ? (
-                <div className="d-flex flex-column">
+              <div className="d-flex flex-column">
+                {userData ? (
                   <button type="button" class="btn btn-success mb-1">
-                    Add to Cart
+                    Buy Now
                   </button>
-                  <button type="button" class="btn btn-info">
-                    View Details
-                  </button>
-                </div>
-              ) : null}
+                ) : null}
+                <button type="button" class="btn btn-info">
+                  View Details
+                </button>
+              </div>
             </div>
           ))}
         </div>
