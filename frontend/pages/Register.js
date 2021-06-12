@@ -8,6 +8,7 @@ import Image from "next/image";
 
 function RegistrationPage() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const [query, setQuery] = useState(true);
 
   const [state, setState] = useState({
     username: "",
@@ -15,7 +16,10 @@ function RegistrationPage() {
     password: "",
     passwordr: "",
   });
-
+  if (query) {
+    Authorization.register(state.username, state.email, state.password);
+    setQuery(false);
+  }
   const handleChange = (e) => {
     const { id, value } = e.target;
     setState((prevState) => ({
