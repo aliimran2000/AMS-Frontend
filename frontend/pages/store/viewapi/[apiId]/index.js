@@ -4,11 +4,13 @@ import styles from "../../../../styles/Home.module.css";
 import { Button } from "reactstrap";
 import axiosinstance from "../../../../Utils/axios/AxiosInstance";
 import saaxiosinstance from "../../../../Utils/axios/SAAxiosInstance";
+import { useUserContext } from "../../../../Source/UserManagement";
 
 const index = () => {
   const [data, setData] = React.useState(null);
   const [query, setQuery] = React.useState(true);
   const [response, setresponse] = React.useState("");
+  const userData = useUserContext();
 
   const router = useRouter();
   const { apiId } = router.query;
@@ -67,35 +69,36 @@ const index = () => {
                 </div>
 
                 <div className="d-flex flex-row justify-content-space-around mt-3">
-                <div className={styles.card}>
-                  <div className="card">
-                    <div className="card-body">
-                      <h4 className="card-title">Package 1</h4>
-                      
-                      <p>
-                        Price : {data.price}  
-                      </p>
+                  <div className={styles.card}>
+                    <div className="card">
+                      <div className="card-body">
+                        <h4 className="card-title">Package 1</h4>
 
-                      <Button color="success" style={{minWidth:200 , minHeight:50}}>
-                        Buy Now
-                      </Button>
+                        <p>Price : {data.price}</p>
+                        {userData && (
+                          <Button
+                            color="success"
+                            style={{ minWidth: 200, minHeight: 50 }}
+                          >
+                            Buy Now
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
 
+                  <div className={styles.card}>
+                    <div className="card">
+                      <div className="card-body">
+                        <h4 className="card-title">Package 2</h4>
+                        <p>
+                          This is a sample placeholder description of package 2
+                          whihc is currently not available
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-
-                <div className={styles.card}>
-                  <div className="card">
-                    <div className="card-body">
-                      <h4 className="card-title">Package 2</h4>
-                      <p>
-                        This is a sample placeholder description of package 2 whihc is currently not available
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
               </div>
 
               <div className={styles.card}>
@@ -119,12 +122,12 @@ const index = () => {
                 <Button
                   color="primary"
                   onClick={() => {
-                    SampleCall();
+                    userData ? SampleCall() : window.location.href("/Login");
                   }}
                   data-event={() => {}}
                   style={{ marginBottom: "1rem" }}
                 >
-                  Do A Sample Call
+                  {userData ? "Do A Sample Call" : "Login to Do a Sample Call"}
                 </Button>
               </div>
             </div>
