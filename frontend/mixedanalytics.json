@@ -1,0 +1,358 @@
+[
+	{
+		"name": "Zippopotamus",
+		"url": "http://www.zippopotam.us/",
+		"desc": "Zip code information",
+		"sampleCall": "https://api.zippopotam.us/us/90210",
+		"price": 1000
+	},
+	{
+		"name": "xkcd",
+		"url": "https://xkcd.com/json.html",
+		"desc": "xkcd comics",
+		"sampleCall": "http://xkcd.com/info.0.json",
+		"price": 10
+	},
+	{
+		"name": "7Timer!",
+		"url": "http://www.7timer.info/doc.php?lang=en",
+		"desc": "Weather forecasts",
+		"sampleCall": "http://www.7timer.info/bin/api.pl?lon=113.17&lat=23.09&product=astro&output=json",
+		"price": 900
+	},
+	{
+		"name": "Data USA",
+		"url": "https://datausa.io/about/api/",
+		"desc": "US public data",
+		"sampleCall": "https://datausa.io/api/data?drilldowns=Nation&measures=Population",
+		"price": 900
+	},
+	{
+		"name": "Shrtcode",
+		"url": "https://app.shrtco.de/docs",
+		"desc": "URL Shortener",
+		"sampleCall": "https://api.shrtco.de/v2/shorten?url=example.org/very/long/link.html",
+		"price": 400
+	},
+	{
+		"name": "Jikan",
+		"url": "https://jikan.moe/",
+		"desc": "Unofficial MyAnimeList API",
+		"sampleCall": "https://api.jikan.moe/v3/search/anime?q=naruto",
+		"price": 400
+	},
+	{
+		"name": "Universities List",
+		"url": "https://github.com/Hipo/university-domains-list",
+		"desc": "Universities",
+		"sampleCall": "http://universities.hipolabs.com/search?country=United+Kingdom",
+		"price": 400
+	},
+	{
+		"name": "TVMaze",
+		"url": "http://www.tvmaze.com/api",
+		"desc": "TV show information",
+		"sampleCall": "http://api.tvmaze.com/search/shows?q=golden%20girls",
+		"price": 467
+	},
+	{
+		"name": "tablescraper-selected-row 2",
+		"url": "tablescraper-selected-row href",
+		"desc": "tablescraper-selected-row 3",
+		"sampleCall": "tablescraper-selected-row href 2",
+		"price": 467
+	},
+	{
+		"name": "Pixel Encounter",
+		"url": "https://www.pixelencounter.com/Api",
+		"desc": "SVG Monsters",
+		"sampleCall": "https://app.pixelencounter.com/api/basic/monsters/random",
+		"price": 1500
+	},
+	{
+		"name": "GitHub Jobs",
+		"url": "https://jobs.github.com/api",
+		"desc": "Search available jobs",
+		"sampleCall": "https://jobs.github.com/positions.json?description=analytics",
+		"price": 1500
+	},
+	{
+		"name": "Recipe Puppy",
+		"url": "http://www.recipepuppy.com/about/api/",
+		"desc": "Recipes",
+		"sampleCall": "\"http://www.recipepuppy.com/api/?i=onions",
+		"price": 1000
+	},
+	{
+		"name": "Dogs",
+		"url": "https://dog.ceo/dog-api/",
+		"desc": "Random dog images",
+		"sampleCall": "https://dog.ceo/api/breeds/image/random",
+		"price": 1000
+	},
+	{
+		"name": "Random Dogs",
+		"url": "https://random.dog/",
+		"desc": "Random dog images",
+		"sampleCall": "https://random.dog/woof.json",
+		"price": 1000
+	},
+	{
+		"name": "Nager.Date",
+		"url": "https://date.nager.at/",
+		"desc": "Public holidays",
+		"sampleCall": "https://date.nager.at/api/v2/publicholidays/2020/US",
+		"price": 1000
+	},
+	{
+		"name": "Nationalize.io",
+		"url": "https://nationalize.io/",
+		"desc": "Predict nationality based on a name",
+		"sampleCall": "https://api.nationalize.io/?name=michael",
+		"price": 1000
+	},
+	{
+		"name": "Genderize.io",
+		"url": "https://genderize.io/",
+		"desc": "Predict gender based on a name",
+		"sampleCall": "https://api.genderize.io/?name=scott",
+		"price": 1000
+	},
+	{
+		"name": "Agify.io",
+		"url": "https://agify.io/",
+		"desc": "Predict age based on a name",
+		"sampleCall": "https://api.agify.io/?name=bella",
+		"price": 1000
+	},
+	{
+		"name": "Imgflip",
+		"url": "https://imgflip.com/api",
+		"desc": "Popular memes",
+		"sampleCall": "https://api.imgflip.com/get_memes",
+		"price": 1000
+	},
+	{
+		"name": "Placekitten",
+		"url": "http://placekitten.com/",
+		"desc": "Placeholder kitten images",
+		"sampleCall": "http://placekitten.com/200/300",
+		"price": 1000
+	},
+	{
+		"name": "MusicBrainz",
+		"url": "https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2",
+		"desc": "Music data",
+		"sampleCall": "http://musicbrainz.org/ws/2/artist/5b11f4ce-a62d-471e-81fc-a69a8278c7da?fmt=json",
+		"price": 1000
+	},
+	{
+		"name": "Makeup",
+		"url": "http://makeup-api.herokuapp.com/",
+		"desc": "Makeup brands and product info",
+		"sampleCall": "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline",
+		"price": 1000
+	},
+	{
+		"name": "Teleport",
+		"url": "https://developers.teleport.org/",
+		"desc": "Location and quality of life data",
+		"sampleCall": "https://api.teleport.org/api/urban_areas/teleport%3A9q8yy/scores/",
+		"price": 1000
+	},
+	{
+		"name": "Public APIs",
+		"url": "https://github.com/davemachado/public-api",
+		"desc": "List public APIs",
+		"sampleCall": "https://api.publicapis.org/entries",
+		"price": 1000
+	},
+	{
+		"name": "Cat Facts",
+		"url": "https://alexwohlbruck.github.io/cat-facts/",
+		"desc": "List of cat facts",
+		"sampleCall": "https://cat-fact.herokuapp.com/facts",
+		"price": 1000
+	},
+	{
+		"name": "Archive.org",
+		"url": "https://archive.readme.io/docs",
+		"desc": "Large public digital archive",
+		"sampleCall": "https://archive.org/advancedsearch.php?q=subject:google+sheets&output=json",
+		"price": 1000
+	},
+	{
+		"name": "JokeAPI",
+		"url": "https://sv443.net/jokeapi/v2/",
+		"desc": "Jokes",
+		"sampleCall": "https://v2.jokeapi.dev/joke/Any",
+		"price": 1000
+	},
+	{
+		"name": "Jokes",
+		"url": "https://github.com/15Dkatz/official_joke_api",
+		"desc": "Jokes",
+		"sampleCall": "https://official-joke-api.appspot.com/jokes/ten",
+		"price": 1000
+	},
+	{
+		"name": "iTunes Search",
+		"url": "https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/",
+		"desc": "iTunes and Apple Book Store content",
+		"sampleCall": "https://itunes.apple.com/search?term=radiohead",
+		"price": 1000
+	},
+	{
+		"name": "IPinfo",
+		"url": "https://ipinfo.io/developers",
+		"desc": "Information about IP addresses",
+		"sampleCall": "https://ipinfo.io/161.185.160.93/geo",
+		"price": 1000
+	},
+	{
+		"name": "Open Library",
+		"url": "https://openlibrary.org/developers/api",
+		"desc": "Information about books",
+		"sampleCall": "http://openlibrary.org/api/volumes/brief/isbn/9780525440987.json",
+		"price": 1000
+	},
+	{
+		"name": "IPify",
+		"url": "https://www.ipify.org/",
+		"desc": "Get your public IP address",
+		"sampleCall": "https://api.ipify.org/?format=json",
+		"price": 1000
+	},
+	{
+		"name": "IP 2 Country",
+		"url": "https://ip2country.info/",
+		"desc": "Get country for IP address",
+		"sampleCall": "https://api.ip2country.info/ip?161.185.160.93",
+		"price": 1000
+	},
+	{
+		"name": "FreeGeoIP",
+		"url": "https://freegeoip.app/",
+		"desc": "GeoIP info",
+		"sampleCall": "https://freegeoip.app/json/",
+		"price": 1000
+	},
+	{
+		"name": "openFDA",
+		"url": "https://open.fda.gov/",
+		"desc": "Federal Drug Administration data",
+		"sampleCall": "https://api.fda.gov/food/enforcement.json?limit=10",
+		"price": 1000
+	},
+	{
+		"name": "RandomUser",
+		"url": "https://randomuser.me/",
+		"desc": "Fake user data generator",
+		"sampleCall": "https://randomuser.me/api/",
+		"price": 1000
+	},
+	{
+		"name": "CoinGecko",
+		"url": "http://www.coingecko.com/api",
+		"desc": "Exchange rates",
+		"sampleCall": "https://api.coingecko.com/api/v3/exchange_rates",
+		"price": 1000
+	},
+	{
+		"name": "ExchangeRate-API",
+		"url": "https://www.exchangerate-api.com/",
+		"desc": "Exchange rates",
+		"sampleCall": "https://api.exchangerate-api.com/v4/latest/USD",
+		"price": 1000
+	},
+	{
+		"name": "Open Food Facts",
+		"url": "https://world.openfoodfacts.org/data",
+		"desc": "Data on food products",
+		"sampleCall": "https://world.openfoodfacts.org/api/v0/product/737628064502.json",
+		"price": 1000
+	},
+	{
+		"name": "CoinBase",
+		"url": "https://developers.coinbase.com/api/v2#data-endpoints",
+		"desc": "Currency codes and names",
+		"sampleCall": "https://api.coinbase.com/v2/currencies",
+		"price": 1000
+	},
+	{
+		"name": "Coinpaprika",
+		"url": "https://api.coinpaprika.com/",
+		"desc": "Cryptocurrency data",
+		"sampleCall": "https://api.coinpaprika.com/v1/coins/btc-bitcoin",
+		"price": 1000
+	},
+	{
+		"name": "CryptingUp",
+		"url": "https://www.cryptingup.com/apidoc/#introduction",
+		"desc": "Cryptocurrency data",
+		"sampleCall": "https://www.cryptingup.com/api/markets",
+		"price": 1000
+	},
+	{
+		"name": "REST Countries",
+		"url": "https://restcountries.eu/",
+		"desc": "Country information",
+		"sampleCall": "https://restcountries.eu/rest/v2/all",
+		"price": 1000
+	},
+	{
+		"name": "Unix Timestamp Converter",
+		"url": "https://unixtime.co.za/",
+		"desc": "Convert timestamps",
+		"sampleCall": "https://showcase.api.linx.twenty57.net/UnixTime/fromunix?timestamp=1549892280",
+		"price": 1000
+	},
+	{
+		"name": "Cocktail Database",
+		"url": "https://www.thecocktaildb.com/api.php",
+		"desc": "Cocktail recipes",
+		"sampleCall": "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita",
+		"price": 1000
+	},
+	{
+		"name": "Image-Charts",
+		"url": "https://documentation.image-charts.com/",
+		"desc": "Chart images",
+		"sampleCall": "\"https://image-charts.com/chart?cht=p3&chs=700x100&chd=t:60",
+		"price": 1000
+	},
+	{
+		"name": "HTTP Cats",
+		"url": "https://http.cat/",
+		"desc": "Cat images for HTTP status codes",
+		"sampleCall": "https://http.cat/401",
+		"price": 1000
+	},
+	{
+		"name": "Open Brewery DB",
+		"url": "https://www.openbrewerydb.org/",
+		"desc": "Breweries",
+		"sampleCall": "https://api.openbrewerydb.org/breweries",
+		"price": 1000
+	},
+	{
+		"name": "CoinDesk",
+		"url": "http://www.coindesk.com/api/",
+		"desc": "Bitcoin price index",
+		"sampleCall": "https://api.coindesk.com/v1/bpi/currentprice.json",
+		"price": 1000
+	},
+	{
+		"name": "PunkAPI",
+		"url": "https://punkapi.com/",
+		"desc": "Beer recipes",
+		"sampleCall": "https://api.punkapi.com/v2/beers",
+		"price": 1000
+	},
+	{
+		"name": "Bored",
+		"url": "https://www.boredapi.com/",
+		"desc": "Activity suggestions",
+		"sampleCall": "https://www.boredapi.com/api/activity"
+	}
+]
