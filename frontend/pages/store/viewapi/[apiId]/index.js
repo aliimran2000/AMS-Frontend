@@ -50,25 +50,27 @@ const index = () => {
     }
   };
 
-
-
-  const BuyApi = ()=>{
-    
+  const BuyApi = () => {
     if (axiosinstance != null) {
       axiosinstance
         .post("/api/APIManagement/BuyAPI", { id: apiId })
         .then((response) => {
           if (response.status == 200) {
-            enqueueSnackbar("Transaction Successfull visit your profile to view the API Key", { variant: "success" })
+            enqueueSnackbar(
+              "Transaction Successfull visit your profile to view the API Key",
+              { variant: "success" }
+            );
           }
         })
         .catch((error) => {
           console.log(error);
-          enqueueSnackbar("Unable to make transaction make sure you have the approprioate funds for the transaction", { variant: "error" })
+          enqueueSnackbar(
+            "Unable to make transaction make sure you have the approprioate funds for the transaction",
+            { variant: "error" }
+          );
         });
     }
-  }
-
+  };
 
   return (
     <div className={styles.container}>
@@ -102,7 +104,9 @@ const index = () => {
                           <Button
                             color="success"
                             style={{ minWidth: 200, minHeight: 50 }}
-                            onClick = {()=>{BuyApi()}}
+                            onClick={() => {
+                              BuyApi();
+                            }}
                           >
                             Buy Now
                           </Button>
@@ -130,7 +134,13 @@ const index = () => {
                   <div className="card-body">
                     <h4 className="card-title">Base URL</h4>
 
-                    <a className="card-text text-center" href={data.url} target="_blank" >{data.url}</a>
+                    <a
+                      className="card-text text-center"
+                      href={data.url}
+                      target="_blank"
+                    >
+                      {data.url}
+                    </a>
                   </div>
                 </div>
 
@@ -138,7 +148,12 @@ const index = () => {
 
                 <p
                   className="border border-info overflow-auto "
-                  style={{ maxHeight: 500, minHeight: 250 , marginTop:2 ,  marginBottom:6 }}
+                  style={{
+                    maxHeight: 500,
+                    minHeight: 250,
+                    marginTop: 2,
+                    marginBottom: 6,
+                  }}
                 >
                   {response}
                 </p>

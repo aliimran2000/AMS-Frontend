@@ -22,17 +22,8 @@ import data from "../Utils/my-services.json";
 import { useUserContext } from "../Source/UserManagement";
 import axiosinstance from "../Utils/axios/AxiosInstance";
 
-
-
-
-
-
-
 function account() {
-
-
-  const [myapis,setmyapis] = React.useState(null)
-
+  const [myapis, setmyapis] = React.useState(null);
 
   const userData = useUserContext();
   function Logout() {
@@ -42,45 +33,35 @@ function account() {
   const apis = data;
   const [collapse, setCollapse] = useState("");
 
-
-
-
-  const GetMyApis = ()=>{
-    
+  const GetMyApis = () => {
     if (axiosinstance != null) {
       axiosinstance
         .get("/api/APIManagement/GetBoughtAPIs")
         .then((response) => {
           if (response.status == 200) {
-            
-            setmyapis(response.data)  
+            setmyapis(response.data);
           }
         })
         .catch((error) => {
           console.log(error);
         });
     }
-  }
-
+  };
 
   const getsnamefromID = (ID) => {
-
     if (axiosinstance != null) {
       axiosinstance
         .post("/api/APIManagement/GetAPIByID", { id: ID })
         .then((response) => {
           if (response.status == 200) {
-            return response.data.name
+            return response.data.name;
           }
         })
         .catch((error) => {
-          return "placeholder"
+          return "placeholder";
         });
     }
-  }
-
-
-
+  };
 
   function toggle(e) {
     const id = String(e.target.dataset.event);
@@ -119,35 +100,32 @@ function account() {
               </div>
 
               <div className="d-flex flex-column justify-content-center">
-                {myapis && myapis.map((item) => {
-                  return (
-                    <div>
-                      
-                      <Button
-                        
-   
-                        color= {item.isExpired ? "danger" : "primary" }
-                        
-                        onClick={toggle}
-                        data-event={item.apiID}
-                        style={{ marginBottom: "1rem" }}
-                      >
-                        Api : {item.api.name}
-                      </Button>
-                      <Collapse isOpen={collapse === item.apiID}>
-                        <Card>
-                          <CardBody>
-                            <CardTitle tag="h5">Date</CardTitle>
-                            <CardText>Brought : {item.boughtOn}</CardText>
-                            <CardText>Expire : {item.expiresOn}</CardText>
-                            <CardTitle tag="h5">Details</CardTitle>
-                            <CardText>API-KEY : {item.apiID}</CardText>
-                          </CardBody>
-                        </Card>
-                      </Collapse>
-                    </div>
-                  );
-                })}
+                {myapis &&
+                  myapis.map((item) => {
+                    return (
+                      <div>
+                        <Button
+                          color={item.isExpired ? "danger" : "primary"}
+                          onClick={toggle}
+                          data-event={item.apiID}
+                          style={{ marginBottom: "1rem" }}
+                        >
+                          Api : {item.api.name}
+                        </Button>
+                        <Collapse isOpen={collapse === item.apiID}>
+                          <Card>
+                            <CardBody>
+                              <CardTitle tag="h5">Date</CardTitle>
+                              <CardText>Brought : {item.boughtOn}</CardText>
+                              <CardText>Expire : {item.expiresOn}</CardText>
+                              <CardTitle tag="h5">Details</CardTitle>
+                              <CardText>API-KEY : {item.apiID}</CardText>
+                            </CardBody>
+                          </Card>
+                        </Collapse>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
             <button
