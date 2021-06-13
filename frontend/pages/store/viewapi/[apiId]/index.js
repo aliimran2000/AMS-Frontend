@@ -5,8 +5,11 @@ import { Button } from "reactstrap";
 import axiosinstance from "../../../../Utils/axios/AxiosInstance";
 import saaxiosinstance from "../../../../Utils/axios/SAAxiosInstance";
 import { useUserContext } from "../../../../Source/UserManagement";
+import { useSnackbar } from "notistack";
 
 const index = () => {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
   const [data, setData] = React.useState(null);
   const [query, setQuery] = React.useState(true);
   const [response, setresponse] = React.useState("");
@@ -47,6 +50,26 @@ const index = () => {
     }
   };
 
+
+
+  const BuyApi = ()=>{
+    
+    if (axiosinstance != null) {
+      axiosinstance
+        .post("/api/APIManagement/BuyApi", { id: apiId })
+        .then((response) => {
+          if (response.status == 200) {
+            enqueueSnackbar("Transaction Successfull visit your profile to view the API Key", { variant: "success" })
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          enqueueSnackbar("Unable to make transaction make sure you have the approprioate funds for the transaction", { variant: "error" })
+        });
+    }
+  }
+
+
   return (
     <div className={styles.container}>
       <div className={styles.main}>
@@ -79,6 +102,7 @@ const index = () => {
                           <Button
                             color="success"
                             style={{ minWidth: 200, minHeight: 50 }}
+                            onClick = {()=>{BuyApi()}}
                           >
                             Buy Now
                           </Button>
@@ -106,7 +130,7 @@ const index = () => {
                   <div className="card-body">
                     <h4 className="card-title">Base URL</h4>
 
-                    <a className="card-text text-center">{data.url}</a>
+                    <a className="card-text text-center" href={data.url} target="_blank" >{data.url}</a>
                   </div>
                 </div>
 
