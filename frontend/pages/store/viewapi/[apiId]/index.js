@@ -111,24 +111,37 @@ const index = () => {
                 </div>
 
                 <p className="text-align-right">Response</p>
-                <div className="card">
-                  <div className="card-body">
-                    <h4 className="card-title"></h4>
 
-                    <p className="card-text overflow-auto">{response}</p>
-                  </div>
-                </div>
+                <p
+                  className="border border-info overflow-auto "
+                  style={{ maxHeight: 500, minHeight: 250 , marginTop:2 ,  marginBottom:6 }}
+                >
+                  {response}
+                </p>
 
                 <Button
                   color="primary"
                   onClick={() => {
-                    userData ? SampleCall() : window.location.href("/Login");
+                    userData ? SampleCall() : (window.location.href = "/Login");
                   }}
                   data-event={() => {}}
                   style={{ marginBottom: "1rem" }}
                 >
                   {userData ? "Do A Sample Call" : "Login to Do a Sample Call"}
                 </Button>
+
+                {userData ? (
+                  <Button
+                    color="success"
+                    onClick={() => {
+                      navigator.clipboard.writeText(response);
+                    }}
+                    data-event={() => {}}
+                    style={{ marginBottom: "1rem" }}
+                  >
+                    Copy Response to Clip Board
+                  </Button>
+                ) : null}
               </div>
             </div>
           </div>
