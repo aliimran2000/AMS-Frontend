@@ -56,7 +56,7 @@ const index = () => {
     
     if (axiosinstance != null) {
       axiosinstance
-        .post("/api/APIManagement/BuyApi", { id: apiId })
+        .post("/api/APIManagement/BuyAPI", { id: apiId })
         .then((response) => {
           if (response.status == 200) {
             enqueueSnackbar("Transaction Successfull visit your profile to view the API Key", { variant: "success" })
@@ -84,7 +84,7 @@ const index = () => {
                   <div className="card-body">
                     <h4 className="card-title">About</h4>
                     <p>
-                      This is a sample placeholder description of what thisd api
+                      This is a sample placeholder description of what this api
                       is about . the api has fast response time and 24 Hour
                       service
                     </p>
@@ -117,7 +117,7 @@ const index = () => {
                         <h4 className="card-title">Package 2</h4>
                         <p>
                           This is a sample placeholder description of package 2
-                          whihc is currently not available
+                          which is currently not available
                         </p>
                       </div>
                     </div>

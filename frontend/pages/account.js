@@ -16,20 +16,71 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
-import { useState } from "react";
-import data from "../Utils/my-services.json"
+import React, { useState } from "react";
+import data from "../Utils/my-services.json";
 
 import { useUserContext } from "../Source/UserManagement";
+import axiosinstance from "../Utils/axios/AxiosInstance";
+
+
+
+
+
+
 
 function account() {
-  const userData = useUserContext()
+
+
+  const [myapis,setmyapis] = React.useState(null)
+
+
+  const userData = useUserContext();
   function Logout() {
     localStorage.clear();
     window.location.href = "/";
   }
-
   const apis = data;
   const [collapse, setCollapse] = useState("");
+
+
+
+
+  const GetMyApis = ()=>{
+    
+    if (axiosinstance != null) {
+      axiosinstance
+        .get("/api/APIManagement/GetBoughtAPIs")
+        .then((response) => {
+          if (response.status == 200) {
+            
+            setmyapis(response.data)  
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }
+
+
+  const getsnamefromID = (ID) => {
+
+    if (axiosinstance != null) {
+      axiosinstance
+        .post("/api/APIManagement/GetAPIByID", { id: ID })
+        .then((response) => {
+          if (response.status == 200) {
+            return response.data.name
+          }
+        })
+        .catch((error) => {
+          return "placeholder"
+        });
+    }
+  }
+
+
+
 
   function toggle(e) {
     const id = String(e.target.dataset.event);
@@ -41,6 +92,7 @@ function account() {
   }
   return (
     <div className="d-flex justify-content-center">
+      {myapis ? null : GetMyApis()}
       <div className={styles.main}>
         <Fade bottom>
           <div className={styles.container}>
@@ -55,35 +107,41 @@ function account() {
                   />
                   <CardBody>
                     <CardTitle tag="h5">Profile</CardTitle>
-                    <CardText>Name : {userData ? userData.username : "Loading..."} </CardText>
-                    <CardText>Current Balance : {userData ? userData.balance : "Loading..."} points </CardText>
+                    <CardText>
+                      Name : {userData ? userData.username : "Loading..."}{" "}
+                    </CardText>
+                    <CardText>
+                      Current Balance :{" "}
+                      {userData ? userData.walletBalance : "Loading..."} points{" "}
+                    </CardText>
                   </CardBody>
                 </Card>
               </div>
 
               <div className="d-flex flex-column justify-content-center">
-                {apis.map((item) => {
+                {myapis && myapis.map((item) => {
                   return (
                     <div>
+                      
                       <Button
-                        color="primary"
+                        
+   
+                        color= {item.isExpired ? "danger" : "primary" }
+                        
                         onClick={toggle}
-                        data-event={item.key}
+                        data-event={item.apiID}
                         style={{ marginBottom: "1rem" }}
                       >
-                        Api : {item.name}
+                        Api : {item.api.name}
                       </Button>
-                      <Collapse isOpen={collapse === item.key}>
+                      <Collapse isOpen={collapse === item.apiID}>
                         <Card>
                           <CardBody>
                             <CardTitle tag="h5">Date</CardTitle>
-                            <CardText>Rented : {item.rentaldate}</CardText>
-                            <CardText>Expire : {item.expiredate}</CardText>
+                            <CardText>Brought : {item.boughtOn}</CardText>
+                            <CardText>Expire : {item.expiresOn}</CardText>
                             <CardTitle tag="h5">Details</CardTitle>
-                            <CardText>API-KEY : {item.key}</CardText>
-                            <CardText>
-                              Description : {item.description}
-                            </CardText>
+                            <CardText>API-KEY : {item.apiID}</CardText>
                           </CardBody>
                         </Card>
                       </Collapse>
